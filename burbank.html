@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Papas Meat &amp; Seafood — Burbank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --red:#c8102e; --red-bright:#e01b3d; --ink:#2b0a0e;
+    --yellow:#f4c542; --cream:#fff7ec;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',system-ui,sans-serif;color:var(--ink);background:var(--cream)}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  /* ---- nav ---- */
+  nav{
+    position:sticky;top:0;z-index:30;background:var(--red);color:#fff;
+    box-shadow:0 4px 18px rgba(0,0,0,.18);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:'Anton',sans-serif;letter-spacing:.05em;font-size:22px;text-transform:uppercase;text-decoration:none;color:#fff}
+  .logo span{color:var(--yellow)}
+  .navlinks{display:flex;align-items:center;gap:22px;font-weight:700;font-size:14px}
+  .navlinks a{text-decoration:none;opacity:.92}
+  .navlinks a:hover{opacity:1}
+  .switch{
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+    padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700;
+  }
+  .switch:hover{background:rgba(255,255,255,.25)}
+
+  /* ---- hero ---- */
+  .hero{
+    position:relative;color:#fff;text-align:center;padding:84px 0 96px;overflow:hidden;
+    background:
+      repeating-linear-gradient(135deg,rgba(0,0,0,.05) 0 24px,transparent 24px 48px),
+      radial-gradient(120% 120% at 50% 0%,var(--red-bright),var(--red) 55%,#7d0c1c 100%);
+  }
+  .hero .badge{
+    display:inline-block;font-family:'Bebas Neue',sans-serif;letter-spacing:.28em;
+    background:var(--yellow);color:var(--ink);padding:7px 16px;border-radius:6px;
+    font-size:14px;margin-bottom:22px;transform:rotate(-2deg);
+  }
+  .hero h1{font-family:'Anton',sans-serif;font-size:clamp(46px,9vw,104px);line-height:.92;text-transform:uppercase;text-shadow:0 4px 24px rgba(0,0,0,.3)}
+  .hero p{max-width:620px;margin:18px auto 0;font-size:clamp(16px,2vw,20px);opacity:.96;line-height:1.5}
+  .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+  .btn{
+    font-family:'Bebas Neue',sans-serif;letter-spacing:.16em;font-size:18px;
+    padding:14px 30px;border-radius:8px;text-decoration:none;border:2px solid #fff;
+    transition:transform .2s, background .2s;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn--solid{background:#fff;color:var(--red)}
+  .btn--ghost{color:#fff}
+  .emoji-row{font-size:38px;margin-top:30px;letter-spacing:10px;opacity:.95}
+
+  /* ---- section heading ---- */
+  .sec{padding:72px 0}
+  .sec h2{font-family:'Anton',sans-serif;font-size:clamp(30px,5vw,52px);text-transform:uppercase;text-align:center;color:var(--red);line-height:.95}
+  .sec .lead{text-align:center;max-width:620px;margin:14px auto 0;font-size:17px;color:#5a4a45}
+
+  /* ---- menu cards ---- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin-top:46px}
+  .card{
+    background:#fff;border-radius:18px;padding:30px 26px;border:2px solid #f0e2d2;
+    box-shadow:0 10px 30px rgba(200,16,46,.06);transition:transform .25s, box-shadow .25s;
+  }
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(200,16,46,.16)}
+  .card .ic{font-size:46px;line-height:1}
+  .card h3{font-family:'Bebas Neue',sans-serif;letter-spacing:.06em;font-size:26px;margin:14px 0 8px;color:var(--ink)}
+  .card p{font-size:15px;color:#6b5a54;line-height:1.5}
+  .card .tag{display:inline-block;margin-top:14px;background:var(--yellow);color:var(--ink);font-weight:700;font-size:12px;padding:4px 10px;border-radius:999px}
+
+  /* ---- strip ---- */
+  .strip{background:var(--ink);color:var(--cream);text-align:center}
+  .strip .wrap{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;padding:46px 24px}
+  .stat .n{font-family:'Anton',sans-serif;font-size:44px;color:var(--yellow)}
+  .stat .l{font-family:'Bebas Neue',sans-serif;letter-spacing:.18em;font-size:14px;opacity:.85}
+
+  /* ---- info ---- */
+  .info{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .info .map{
+    border-radius:18px;min-height:260px;border:2px solid #f0e2d2;
+    background:
+      repeating-linear-gradient(0deg,#e9dcc8 0 1px,transparent 1px 38px),
+      repeating-linear-gradient(90deg,#e9dcc8 0 1px,transparent 1px 38px),
+      #f3e8d6;
+    display:flex;align-items:center;justify-content:center;font-size:54px;
+  }
+  .info h2{text-align:left}
+  .info .row{display:flex;gap:12px;margin-top:16px;font-size:16px;color:#4a3b36}
+  .info .row b{font-family:'Bebas Neue',sans-serif;letter-spacing:.1em;font-size:16px;color:var(--red);min-width:90px;display:inline-block}
+
+  footer{background:var(--red);color:#fff;text-align:center;padding:40px 24px;font-size:14px}
+  footer .logo{font-size:26px;display:inline-block;margin-bottom:10px}
+  footer a{color:var(--yellow);text-decoration:none;font-weight:700}
+
+  @media(max-width:760px){
+    .navlinks a:not(.switch){display:none}
+    .info{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a class="logo" href="index.html">PAPAS <span>★</span> BURBANK</a>
+      <div class="navlinks">
+        <a href="#menu">Menu</a>
+        <a href="#visit">Visit</a>
+        <a class="switch" href="la-crescenta.html">📍 Switch to La Crescenta →</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="badge">THE ORIGINAL · ALWAYS BUZZING</span>
+      <h1>Come Hungry,<br>Leave Happy</h1>
+      <p>Our flagship Burbank shop is all about the food — stacked sandwiches, loaded bowls, and butcher-fresh cuts straight off the block. Fast, fun, and always packed.</p>
+      <div class="cta">
+        <a class="btn btn--solid" href="#menu">SEE THE MENU</a>
+        <a class="btn btn--ghost" href="#visit">FIND US →</a>
+      </div>
+      <div class="emoji-row">🥪 🥗 🥩 🐟 🔥</div>
+    </div>
+  </header>
+
+  <section class="sec" id="menu">
+    <div class="wrap">
+      <h2>What's Good Today</h2>
+      <p class="lead">Built fast, made fresh. This is the food-first spot — and yes, this is the <b>only</b> location with our famous bowls.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="ic">🥪</div>
+          <h3>Sandwiches</h3>
+          <p>Pastrami, tri-tip, Italian subs — stacked high on fresh bread and built for the lunch rush.</p>
+          <span class="tag">Fan Favorite</span>
+        </div>
+        <div class="card">
+          <div class="ic">🥗</div>
+          <h3>Bowls</h3>
+          <p>Protein-packed rice & veggie bowls. Pick your meat, pile it on. Only here in Burbank.</p>
+          <span class="tag">Burbank Exclusive</span>
+        </div>
+        <div class="card">
+          <div class="ic">🥩</div>
+          <h3>Butcher Cuts</h3>
+          <p>Hand-cut steaks, marinated meats, and grill-ready favorites from our in-house butcher.</p>
+          <span class="tag">Cut to Order</span>
+        </div>
+        <div class="card">
+          <div class="ic">🐟</div>
+          <h3>Fresh Seafood</h3>
+          <p>Daily catch on ice — salmon, shrimp, and more, ready for the pan or the grill.</p>
+          <span class="tag">Fresh Daily</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="wrap">
+      <div class="stat"><div class="n">15+</div><div class="l">Years on the Block</div></div>
+      <div class="stat"><div class="n">100%</div><div class="l">Fresh, Never Frozen</div></div>
+      <div class="stat"><div class="n">🔥</div><div class="l">Always Busy</div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="visit">
+    <div class="wrap info">
+      <div>
+        <h2>Come See Us</h2>
+        <div class="row"><b>Address</b><span>Burbank, CA</span></div>
+        <div class="row"><b>Hours</b><span>Mon–Sat 9am–7pm · Sun 9am–5pm</span></div>
+        <div class="row"><b>Phone</b><span>(818) ___-____</span></div>
+        <div class="row"><b>Order</b><span>Walk in or call ahead — lunch goes fast!</span></div>
+        <div class="cta" style="justify-content:flex-start">
+          <a class="btn btn--solid" style="color:var(--red);border-color:var(--red)" href="#">GET DIRECTIONS</a>
+        </div>
+      </div>
+      <div class="map">🗺️</div>
+    </div>
+  </section>
+
+  <footer>
+    <a class="logo" href="index.html">PAPAS <span style="color:var(--yellow)">★</span> MEAT &amp; SEAFOOD</a>
+    <p>Burbank &amp; La Crescenta, CA · Two locations, one family.</p>
+    <p style="margin-top:8px">Looking for groceries &amp; pantry staples? <a href="la-crescenta.html">Visit our La Crescenta market →</a></p>
+  </footer>
+
+</body>
+</html>

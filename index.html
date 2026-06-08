@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Papas — Meat &amp; Seafood</title>
+<meta name="description" content="Papas Meat & Seafood — a family butcher and kitchen. Burbank & La Crescenta, California." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&display=swap" rel="stylesheet" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+
+<!-- ░░░ CINEMATIC INTRO LOADER ░░░ -->
+<div class="loader" id="loader">
+  <div class="loader__inner">
+    <svg class="seal loader__seal" viewBox="0 0 200 200" role="img" aria-label="Papas seal">
+      <defs>
+        <path id="sealTopL" d="M26 100 A74 74 0 0 1 174 100"/>
+        <path id="sealBotL" d="M174 100 A74 74 0 0 1 26 100"/>
+      </defs>
+      <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="1"/>
+      <text class="seal__arc"><textPath href="#sealTopL" startOffset="50%" text-anchor="middle">PAPAS · MEAT &amp; SEAFOOD</textPath></text>
+      <text class="seal__arc"><textPath href="#sealBotL" startOffset="50%" text-anchor="middle">BURBANK · LA CRESCENTA</textPath></text>
+      <text x="100" y="94" text-anchor="middle" class="seal__star">✦</text>
+      <text x="100" y="120" text-anchor="middle" class="seal__est">EST.</text>
+    </svg>
+    <div class="loader__word"><span>PAPAS</span></div>
+    <div class="loader__bar"><i></i></div>
+    <div class="loader__count">00</div>
+  </div>
+</div>
+
+<!-- film grain + vignette overlays -->
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- ░░░ NAV ░░░ -->
+<header class="nav" id="nav">
+  <a href="#hero" class="nav__brand">PAPAS<span class="brand-dot">.</span></a>
+  <nav class="nav__links">
+    <a href="#menu">The Counter</a>
+    <a href="#locations">Locations</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Kind Words</a>
+  </nav>
+  <a href="#order" class="btn btn--order nav__order">Order Now</a>
+</header>
+
+<main>
+
+  <!-- ░░░ PAGE 1 — HERO ░░░ -->
+  <section class="hero" id="hero">
+    <svg class="seal seal--hero" viewBox="0 0 200 200" role="img" aria-label="Papas Meat & Seafood — Burbank & La Crescenta">
+      <defs>
+        <path id="sealTop" d="M26 100 A74 74 0 0 1 174 100"/>
+        <path id="sealBot" d="M174 100 A74 74 0 0 1 26 100"/>
+      </defs>
+      <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="1"/>
+      <text class="seal__arc"><textPath href="#sealTop" startOffset="50%" text-anchor="middle">PAPAS · MEAT &amp; SEAFOOD</textPath></text>
+      <text class="seal__arc"><textPath href="#sealBot" startOffset="50%" text-anchor="middle">BURBANK · LA CRESCENTA</textPath></text>
+      <text x="100" y="94" text-anchor="middle" class="seal__star">✦</text>
+      <text x="100" y="120" text-anchor="middle" class="seal__est">EST.</text>
+    </svg>
+    <h1 class="mast">
+      <span class="mast__line" data-hero-line>PAPAS</span>
+      <span class="mast__line mast__line--serif" data-hero-line><em>Meat</em> <span class="amp">&amp;</span> <em>Seafood</em></span>
+    </h1>
+    <p class="hero__tagline" data-hero>The Italian Butcher Shop</p>
+    <div class="hero__cta" data-hero>
+      <a href="#order" class="btn btn--order btn--lg">Order Now</a>
+      <a href="#menu" class="btn btn--ghost btn--lg">View the Counter</a>
+    </div>
+    <div class="hero__scroll" data-hero><span>Scroll</span><i></i></div>
+  </section>
+
+  <!-- ░░░ PAGE 1.5 — THE COUNTER (editorial menu grid, Jacquemus layout) ░░░ -->
+  <section class="counter" id="menu">
+    <div class="section-head">
+      <span class="kicker" data-reveal>01 — The Counter</span>
+      <h2 class="section-title" data-reveal>The sandwiches,<br><em>up close.</em></h2>
+      <p class="section-sub" data-reveal>Our most-ordered, twice over — then the rest of the lineup. Hover any piece to turn it in the light.</p>
+    </div>
+
+    <!-- TWO big — the most popular sando. Swap each .m-obj for <img src="..."> later. -->
+    <div class="menu-hero">
+      <article class="m-card" data-reveal>
+        <span class="m-card__tag m-card__tag--feature">Most Ordered</span>
+        <div class="m-card__shot m-card__shot--a"><div class="m-obj m-obj--char"></div></div>
+        <div class="m-card__shot m-card__shot--b"><div class="m-obj m-obj--meat"></div></div>
+        <div class="m-card__meta"><span class="name">Pastrami on Rye</span><span class="price">$15</span></div>
+      </article>
+      <article class="m-card" data-reveal>
+        <span class="m-card__tag">Pastrami · ¾ View</span>
+        <div class="m-card__shot m-card__shot--a"><div class="m-obj m-obj--meat"></div></div>
+        <div class="m-card__shot m-card__shot--b"><div class="m-obj m-obj--char"></div></div>
+        <div class="m-card__meta"><span class="name">Pastrami on Rye</span><span class="price">$15</span></div>
+      </article>
+    </div>
+
+    <!-- FOUR smaller — the rest of the lineup -->
+    <div class="menu-grid">
+      <article class="m-card" data-reveal>
+        <span class="m-card__tag">New</span>
+        <div class="m-card__shot m-card__shot--a"><div class="m-obj m-obj--sear"></div></div>
+        <div class="m-card__shot m-card__shot--b"><div class="m-obj m-obj--char"></div></div>
+        <div class="m-card__meta"><span class="name">Tri-Tip</span><span class="price">$14</span></div>
+      </article>
+      <article class="m-card" data-reveal>
+        <span class="m-card__tag">New</span>
+        <div class="m-card__shot m-card__shot--a"><div class="m-obj m-obj--meat"></div></div>
+        <div class="m-card__shot m-card__shot--b"><div class="m-obj m-obj--sear"></div></div>
+        <div class="m-card__meta"><span class="name">The Italian</span><span class="price">$14</span></div>
+      </article>
+      <article class="m-card" data-reveal>
+        <div class="m-card__shot m-card__shot--a"><div class="m-obj m-obj--char"></div></div>
+        <div class="m-card__shot m-card__shot--b"><div class="m-obj m-obj--meat"></div></div>
+        <div class="m-card__meta"><span class="name">Meatball Parm</span><span class="price">$13</span></div>
+      </article>
+      <article class="m-card" data-reveal>
+        <div class="m-card__shot m-card__shot--a"><div class="m-obj m-obj--bowl"></div></div>
+        <div class="m-card__shot m-card__shot--b"><div class="m-obj m-obj--sea"></div></div>
+        <div class="m-card__meta"><span class="name">Chicken Cutlet</span><span class="price">$13</span></div>
+      </article>
+    </div>
+
+    <a href="#order" class="btn btn--order btn--lg counter__cta" data-reveal>Order the Counter</a>
+  </section>
+
+  <!-- ░░░ PAGE 2 — LOCATIONS (cinematic hero of most popular item) ░░░ -->
+  <section class="locations" id="locations">
+    <div class="locations__bg" data-loc-bg>
+      <div class="ph ph--char locations__img"><span class="ph__tag ph__tag--big">Pastrami on Rye — our most-ordered</span></div>
+    </div>
+    <div class="locations__overlay"></div>
+
+    <div class="locations__intro">
+      <span class="kicker kicker--light" data-reveal>02 — Locations</span>
+      <h2 class="section-title section-title--light" data-reveal>Two houses.<br><em>One family.</em></h2>
+    </div>
+
+    <div class="loc-grid">
+      <a class="loc-card" href="burbank.html" data-reveal>
+        <span class="loc-card__num">01</span>
+        <h3 class="loc-card__name">Burbank</h3>
+        <p class="loc-card__tag">The original — food-first &amp; always buzzing. Sandwiches, bowls &amp; cuts off the block.</p>
+        <span class="loc-card__link">Enter Burbank →</span>
+      </a>
+      <a class="loc-card" href="la-crescenta.html" data-reveal>
+        <span class="loc-card__num">02</span>
+        <h3 class="loc-card__name">La&nbsp;Crescenta</h3>
+        <p class="loc-card__tag">Newly open — the neighborhood market &amp; deli. Pantry, snacks, cuts &amp; sandwiches.</p>
+        <span class="loc-card__link">Enter La Crescenta →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ░░░ PAGE 3 — ABOUT ░░░ -->
+  <section class="about" id="about">
+    <div class="about__head">
+      <span class="kicker" data-reveal>03 — About</span>
+      <h2 class="section-title" data-reveal>A family affair,<br><em>since day one.</em></h2>
+    </div>
+
+    <div class="about__layout">
+      <div class="about__copy" data-reveal>
+        <p>Papas started the way the best things do — at a counter, with a family, and a stubborn belief
+          that meat is worth doing right. Three generations later, we still break it down by hand, still
+          know our regulars by name, still build every sandwich like it's going on the wall.</p>
+        <p>We dress like a butcher and think like a design house: clean lines, honest materials,
+          nothing on the plate that doesn't belong there.</p>
+        <ul class="about__facts">
+          <li><b>Family-run</b><span>three generations deep</span></li>
+          <li><b>Cut by hand</b><span>fresh, never frozen</span></li>
+          <li><b>Two homes</b><span>Burbank &amp; La Crescenta</span></li>
+        </ul>
+      </div>
+
+      <div class="about__gallery">
+        <div class="g g--tall" data-parallax data-speed="0.12"><div class="ph ph--meat"><span class="ph__tag">The block</span></div></div>
+        <div class="g g--wide" data-parallax data-speed="-0.08"><div class="ph ph--counter"><span class="ph__tag">The shop</span></div></div>
+        <div class="g g--sm" data-parallax data-speed="0.16"><div class="ph ph--char"><span class="ph__tag">The team</span></div></div>
+        <div class="g g--sm2" data-parallax data-speed="-0.12"><div class="ph ph--cream"><span class="ph__tag">Family</span></div></div>
+        <div class="g g--med" data-parallax data-speed="0.1"><div class="ph ph--sear"><span class="ph__tag">The craft</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ PAGE 4 — REVIEWS + INFO ░░░ -->
+  <section class="reviews" id="reviews">
+    <div class="section-head section-head--center">
+      <span class="kicker" data-reveal>04 — Kind Words</span>
+      <h2 class="section-title" data-reveal>Loved by the<br><em>neighborhood.</em></h2>
+    </div>
+
+    <div class="review-grid">
+      <figure class="review" data-reveal>
+        <div class="review__stars">★★★★★</div>
+        <blockquote>"Best tri-tip sandwich in the valley, full stop. The family treats you like
+          you've been coming for years — because you will be."</blockquote>
+        <figcaption>— Placeholder, Yelp · Burbank</figcaption>
+      </figure>
+      <figure class="review" data-reveal>
+        <div class="review__stars">★★★★★</div>
+        <blockquote>"Found my new neighborhood market. Incredible cuts, kind people, and they
+          remembered my order the second time in. Rare these days."</blockquote>
+        <figcaption>— Placeholder, Yelp · La Crescenta</figcaption>
+      </figure>
+      <figure class="review" data-reveal>
+        <div class="review__stars">★★★★★</div>
+        <blockquote>"You can taste the care. This is what a butcher shop should feel like —
+          old-school heart, modern everything else."</blockquote>
+        <figcaption>— Placeholder, Yelp · Burbank</figcaption>
+      </figure>
+    </div>
+
+    <!-- info / order -->
+    <div class="info" id="order">
+      <div class="info__col" data-reveal>
+        <h3>Burbank</h3>
+        <p>Address line, Burbank, CA<br>Mon–Sat 9–7 · Sun 9–5<br>(818) ___-____</p>
+        <a class="btn btn--order" href="#">Order Burbank</a>
+      </div>
+      <div class="info__col" data-reveal>
+        <h3>La Crescenta</h3>
+        <p>Address line, La Crescenta, CA<br>Mon–Sun 8–8<br>(818) ___-____</p>
+        <a class="btn btn--order" href="#">Order La Crescenta</a>
+      </div>
+      <div class="info__col info__col--note" data-reveal>
+        <h3>Papas</h3>
+        <p>A family butcher &amp; kitchen.<br>Cut to order, made with care,<br>served like it matters.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <svg class="seal seal--foot" viewBox="0 0 200 200" role="img" aria-label="Papas Meat & Seafood seal">
+      <defs>
+        <path id="sealTopF" d="M26 100 A74 74 0 0 1 174 100"/>
+        <path id="sealBotF" d="M174 100 A74 74 0 0 1 26 100"/>
+      </defs>
+      <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="1"/>
+      <text class="seal__arc"><textPath href="#sealTopF" startOffset="50%" text-anchor="middle">PAPAS · MEAT &amp; SEAFOOD</textPath></text>
+      <text class="seal__arc"><textPath href="#sealBotF" startOffset="50%" text-anchor="middle">BURBANK · LA CRESCENTA</textPath></text>
+      <text x="100" y="94" text-anchor="middle" class="seal__star">✦</text>
+      <text x="100" y="120" text-anchor="middle" class="seal__est">EST.</text>
+    </svg>
+    <div class="foot__mark">PAPAS<span class="brand-dot">.</span></div>
+    <div class="foot__row">
+      <span>Meat &amp; Seafood</span>
+      <span>Burbank · La Crescenta, CA</span>
+      <a href="#hero">Back to top ↑</a>
+    </div>
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

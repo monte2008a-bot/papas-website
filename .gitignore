@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# editors
+.vscode/
+.idea/
+
+# logs / build
+*.log
+out/
+node_modules/
+
+# ruflo runtime
+.claude-flow/
+.swarm/
