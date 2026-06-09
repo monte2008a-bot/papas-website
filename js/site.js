@@ -82,8 +82,7 @@
     var counter = { v: 0 };
     gsap.timeline()
       .set(loader, { autoAlpha: 1 })
-      .from(".loader__seal", { scale: 0.7, autoAlpha: 0, duration: 0.8, ease: "power3.out" })
-      .from(".loader__word span", { yPercent: 115, duration: 0.9, ease: "power4.out" }, "-=0.4")
+      .from(".loader__word span", { yPercent: 115, duration: 0.9, ease: "power4.out" })
       .to(".loader__bar i", { width: "100%", duration: 1.1, ease: "power2.inOut" }, "-=0.55")
       .to(counter, { v: 100, duration: 1.1, ease: "power2.inOut",
         onUpdate: function () { if (countEl) countEl.textContent = String(Math.round(counter.v)).padStart(2, "0"); } }, "<")
