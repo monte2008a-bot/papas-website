@@ -112,10 +112,10 @@ em{font-style:italic}
 .hero__tagline{margin-top:30px;font-size:clamp(14px,1.4vw,17px);font-weight:700;
   letter-spacing:.34em;text-transform:uppercase;color:var(--orange)}
 .mast{line-height:.82;letter-spacing:-.04em}
-.mast .amp{color:var(--orange);font-family:'Fraunces',serif;font-style:italic}
+.mast .amp{color:var(--orange);font-family:'Bodoni Moda',serif;font-style:italic}
 .mast__line{display:block;font-weight:900;font-size:clamp(72px,20vw,300px)}
-.mast__line--serif{font-family:'Fraunces',serif;font-weight:400;font-style:italic;letter-spacing:-.02em;
-  font-size:clamp(40px,11vw,170px);margin-top:.04em;color:var(--ink-soft)}
+.mast__line--serif{font-family:'Bodoni Moda',serif;font-weight:500;font-style:italic;letter-spacing:-.01em;
+  font-size:clamp(38px,10.5vw,158px);margin-top:.06em;color:var(--ink-soft)}
 .mast__line--serif em{font-style:italic;color:var(--ink)}
 .hero__lede{max-width:44ch;margin:34px 0 0;font-size:clamp(16px,1.7vw,21px);line-height:1.5;color:var(--ink-soft)}
 .hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px;justify-content:center}
