@@ -71,6 +71,7 @@ em{font-style:italic}
 }
 .section-title em{font-family:'Fraunces',serif;font-weight:500;font-style:italic;letter-spacing:-.01em}
 .section-title--light{color:var(--egg)}
+.section-title--run{overflow-wrap:anywhere}   /* long run-together word never overflows */
 .section-sub{margin-top:1.2em;max-width:46ch;color:var(--muted);font-size:clamp(15px,1.5vw,18px);line-height:1.55}
 
 /* ---------- buttons ---------- */
@@ -485,11 +486,10 @@ em{font-style:italic}
   <!-- ░░░ PAGE 3 — ABOUT ░░░ -->
   <section class="about" id="about">
     <div class="about__head">
-      <h2 class="section-title" data-reveal>Where It <em>Started.</em></h2>
+      <h2 class="section-title section-title--run" data-reveal>WhoWhatWhereWhen<em>Why</em></h2>
     </div>
 
     <div class="about__intro" data-reveal>
-      <p class="about__lead"><span class="run">WhoWhatWhereWhen</span> <em>Why.</em></p>
       <p class="about__hook">What we create is deeply personal to us.</p>
     </div>
 

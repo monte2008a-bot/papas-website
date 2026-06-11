@@ -59,6 +59,7 @@ em{font-style:italic}
 }
 .section-title em{font-family:'Fraunces',serif;font-weight:500;font-style:italic;letter-spacing:-.01em}
 .section-title--light{color:var(--egg)}
+.section-title--run{overflow-wrap:anywhere}   /* long run-together word never overflows */
 .section-sub{margin-top:1.2em;max-width:46ch;color:var(--muted);font-size:clamp(15px,1.5vw,18px);line-height:1.55}
 
 /* ---------- buttons ---------- */
