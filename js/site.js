@@ -48,13 +48,20 @@
   onScroll();
 
   if (hasST) {
-    var dark = document.getElementById("locations");
-    if (dark && nav) {
-      ScrollTrigger.create({
-        trigger: dark, start: "top 70px", end: "bottom 70px",
-        onToggle: function (self) { nav.classList.toggle("is-dark", self.isActive); }
+    var spine = document.getElementById("spine");
+    // switch nav + side spine to light over dark sections (locations + footer)
+    ["#locations", ".foot"].forEach(function (sel) {
+      var el = document.querySelector(sel);
+      if (!el) return;
+      if (nav) ScrollTrigger.create({
+        trigger: el, start: "top 64px", end: "bottom 64px",
+        onToggle: function (s) { nav.classList.toggle("is-dark", s.isActive); }
       });
-    }
+      if (spine) ScrollTrigger.create({
+        trigger: el, start: "top 55%", end: "bottom 45%",
+        onToggle: function (s) { spine.classList.toggle("is-dark", s.isActive); }
+      });
+    });
   }
 
   /* ---------- 3. Intro loader -> hero reveal ---------- */
@@ -63,8 +70,8 @@
   function heroIntro() {
     if (hasGSAP && !reduce) {
       gsap.timeline({ defaults: { ease: "power4.out" } })
-        .from("[data-hero-line]", { yPercent: 115, opacity: 0, duration: 1.1, stagger: 0.12 })
-        .from("[data-hero]", { y: 26, opacity: 0, duration: 0.9, stagger: 0.1 }, "-=0.7");
+        .from("#spine", { autoAlpha: 0, xPercent: -45, duration: 1.2 })
+        .from("[data-hero]", { y: 26, opacity: 0, duration: 0.9, stagger: 0.1 }, "-=0.8");
     }
     if (hasST) ScrollTrigger.refresh();
   }

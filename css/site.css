@@ -27,6 +27,7 @@
 
   --maxw: 1320px;
   --pad: clamp(20px, 5vw, 80px);
+  --gutter: clamp(84px, 9.5vw, 150px);   /* reserved left lane for the vertical wordmark */
   --ease: cubic-bezier(.22,.61,.36,1);
 }
 
@@ -134,6 +135,27 @@ em{font-style:italic}
 .hero__scroll span{color:var(--orange)}
 .hero__scroll i::after{content:"";position:absolute;inset:0;background:var(--orange);transform:translateX(-100%);animation:scrollline 2.2s var(--ease) infinite}
 @keyframes scrollline{50%{transform:translateX(0)}100%{transform:translateX(100%)}}
+
+/* ---------- SIDE SPINE WORDMARK (fixed, follows the viewer down) ---------- */
+.spine{position:fixed;left:0;top:0;bottom:0;z-index:40;margin:0;width:var(--gutter);
+  display:flex;align-items:center;justify-content:center;pointer-events:none;
+  color:var(--ink);transition:color .45s var(--ease)}
+.spine span{font-family:'Bebas Neue',sans-serif;font-weight:400;line-height:1;white-space:nowrap;
+  font-size:clamp(88px,15vh,182px);letter-spacing:.06em;transform:rotate(-90deg)}
+.spine.is-dark{color:var(--egg)}
+@media (min-width:761px){
+  body{padding-left:var(--gutter)}
+  .nav,.nav.is-scrolled{padding-left:calc(var(--gutter) + var(--pad))}
+  .nav__brand{display:none}        /* the spine is the logo on desktop */
+}
+@media (max-width:760px){ .spine{display:none} }   /* phones use the centered hero wordmark */
+
+/* centered wordmark — mobile only (desktop uses the side spine) */
+.hero__mark{display:none}
+@media (max-width:760px){
+  .hero__mark{display:block;font-family:'Bebas Neue',sans-serif;font-weight:400;
+    font-size:clamp(96px,31vw,200px);line-height:.84;letter-spacing:.02em;color:var(--ink);margin-bottom:26px}
+}
 
 /* ---------- section scaffolding ---------- */
 .section-head{padding:0 var(--pad);max-width:var(--maxw);margin:0 auto}

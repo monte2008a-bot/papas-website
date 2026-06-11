@@ -39,6 +39,7 @@
 
   --maxw: 1320px;
   --pad: clamp(20px, 5vw, 80px);
+  --gutter: clamp(84px, 9.5vw, 150px);   /* reserved left lane for the vertical wordmark */
   --ease: cubic-bezier(.22,.61,.36,1);
 }
 
@@ -146,6 +147,27 @@ em{font-style:italic}
 .hero__scroll span{color:var(--orange)}
 .hero__scroll i::after{content:"";position:absolute;inset:0;background:var(--orange);transform:translateX(-100%);animation:scrollline 2.2s var(--ease) infinite}
 @keyframes scrollline{50%{transform:translateX(0)}100%{transform:translateX(100%)}}
+
+/* ---------- SIDE SPINE WORDMARK (fixed, follows the viewer down) ---------- */
+.spine{position:fixed;left:0;top:0;bottom:0;z-index:40;margin:0;width:var(--gutter);
+  display:flex;align-items:center;justify-content:center;pointer-events:none;
+  color:var(--ink);transition:color .45s var(--ease)}
+.spine span{font-family:'Bebas Neue',sans-serif;font-weight:400;line-height:1;white-space:nowrap;
+  font-size:clamp(88px,15vh,182px);letter-spacing:.06em;transform:rotate(-90deg)}
+.spine.is-dark{color:var(--egg)}
+@media (min-width:761px){
+  body{padding-left:var(--gutter)}
+  .nav,.nav.is-scrolled{padding-left:calc(var(--gutter) + var(--pad))}
+  .nav__brand{display:none}        /* the spine is the logo on desktop */
+}
+@media (max-width:760px){ .spine{display:none} }   /* phones use the centered hero wordmark */
+
+/* centered wordmark — mobile only (desktop uses the side spine) */
+.hero__mark{display:none}
+@media (max-width:760px){
+  .hero__mark{display:block;font-family:'Bebas Neue',sans-serif;font-weight:400;
+    font-size:clamp(96px,31vw,200px);line-height:.84;letter-spacing:.02em;color:var(--ink);margin-bottom:26px}
+}
 
 /* ---------- section scaffolding ---------- */
 .section-head{padding:0 var(--pad);max-width:var(--maxw);margin:0 auto}
@@ -352,6 +374,9 @@ em{font-style:italic}
   </div>
 </div>
 
+<!-- side spine wordmark — fixed, follows the viewer down the page -->
+<h1 class="spine" id="spine"><span>PAPA’S</span></h1>
+
 <!-- film grain + vignette overlays -->
 <div class="grain" aria-hidden="true"></div>
 <div class="vignette" aria-hidden="true"></div>
@@ -372,10 +397,7 @@ em{font-style:italic}
 
   <!-- ░░░ PAGE 1 — HERO ░░░ -->
   <section class="hero" id="hero">
-    <h1 class="mast">
-      <span class="mast__line" data-hero-line>PAPA’S</span>
-      <span class="mast__line mast__line--serif" data-hero-line><em>Meat</em> <span class="amp">&amp;</span> <em>Seafood</em></span>
-    </h1>
+    <div class="hero__mark" aria-hidden="true">PAPA’S</div>
     <div class="hero__cta" data-hero>
       <a href="#order" class="btn btn--order btn--lg">Order Now</a>
       <a href="#menu" class="btn btn--ghost btn--lg">View the Counter</a>
@@ -601,13 +623,20 @@ em{font-style:italic}
   onScroll();
 
   if (hasST) {
-    var dark = document.getElementById("locations");
-    if (dark && nav) {
-      ScrollTrigger.create({
-        trigger: dark, start: "top 70px", end: "bottom 70px",
-        onToggle: function (self) { nav.classList.toggle("is-dark", self.isActive); }
+    var spine = document.getElementById("spine");
+    // switch nav + side spine to light over dark sections (locations + footer)
+    ["#locations", ".foot"].forEach(function (sel) {
+      var el = document.querySelector(sel);
+      if (!el) return;
+      if (nav) ScrollTrigger.create({
+        trigger: el, start: "top 64px", end: "bottom 64px",
+        onToggle: function (s) { nav.classList.toggle("is-dark", s.isActive); }
       });
-    }
+      if (spine) ScrollTrigger.create({
+        trigger: el, start: "top 55%", end: "bottom 45%",
+        onToggle: function (s) { spine.classList.toggle("is-dark", s.isActive); }
+      });
+    });
   }
 
   /* ---------- 3. Intro loader -> hero reveal ---------- */
@@ -616,8 +645,8 @@ em{font-style:italic}
   function heroIntro() {
     if (hasGSAP && !reduce) {
       gsap.timeline({ defaults: { ease: "power4.out" } })
-        .from("[data-hero-line]", { yPercent: 115, opacity: 0, duration: 1.1, stagger: 0.12 })
-        .from("[data-hero]", { y: 26, opacity: 0, duration: 0.9, stagger: 0.1 }, "-=0.7");
+        .from("#spine", { autoAlpha: 0, xPercent: -45, duration: 1.2 })
+        .from("[data-hero]", { y: 26, opacity: 0, duration: 0.9, stagger: 0.1 }, "-=0.8");
     }
     if (hasST) ScrollTrigger.refresh();
   }
