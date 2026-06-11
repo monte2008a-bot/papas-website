@@ -70,7 +70,7 @@
   function heroIntro() {
     if (hasGSAP && !reduce) {
       gsap.timeline({ defaults: { ease: "power4.out" } })
-        .from("#spine", { autoAlpha: 0, xPercent: -45, duration: 1.2 })
+        .from("#spine", { autoAlpha: 0, duration: 1.2 })
         .from("[data-hero]", { y: 26, opacity: 0, duration: 0.9, stagger: 0.1 }, "-=0.8");
     }
     if (hasST) ScrollTrigger.refresh();
@@ -114,6 +114,18 @@
     });
   } else {
     document.querySelectorAll("[data-reveal]").forEach(function (el) { el.classList.add("is-in"); });
+  }
+
+  /* ---------- 5b. Side spine — drift & travel with scroll ---------- */
+  if (hasST && !reduce) {
+    var spineEl = document.getElementById("spine");
+    if (spineEl && window.matchMedia("(min-width:761px)").matches) {
+      // rest position = full wordmark (hero); drifts/travels upward as you scroll
+      gsap.to(spineEl, {
+        y: function () { return -window.innerHeight * 0.34; }, ease: "none",
+        scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 0.6 }
+      });
+    }
   }
 
   /* ---------- 5. Locations cinematic background parallax + scale ---------- */
