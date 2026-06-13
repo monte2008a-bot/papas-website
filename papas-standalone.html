@@ -845,9 +845,9 @@ em{font-style:italic}
   if (hasST && !reduce) {
     var spineEl = document.getElementById("spine");
     if (spineEl && window.matchMedia("(min-width:761px)").matches) {
-      // rest position = full wordmark (hero); drifts/travels upward as you scroll
+      // rest position = full wordmark (hero); drifts/travels downward as you scroll
       gsap.to(spineEl, {
-        y: function () { return -window.innerHeight * 0.34; }, ease: "none",
+        y: function () { return window.innerHeight * 0.34; }, ease: "none",
         scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 0.6 }
       });
     }
