@@ -130,7 +130,19 @@ em{font-style:italic}
 /* ---------- HERO ---------- */
 .hero{
   min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  text-align:center;padding:120px var(--pad) 80px;position:relative;
+  padding:120px var(--pad) 80px;position:relative;
+}
+.hero__grid{width:100%;max-width:var(--maxw);display:grid;grid-template-columns:1fr 1.05fr;
+  gap:clamp(30px,5vw,72px);align-items:center}
+.hero__copy{display:flex;flex-direction:column;gap:30px;align-items:flex-start;text-align:left}
+.hero__eyebrow{font-size:13px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.hero__media{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;
+  box-shadow:0 50px 90px -45px rgba(22,33,15,.5)}
+.hero__media img,.hero__media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (max-width:760px){
+  .hero__grid{grid-template-columns:1fr;gap:34px}
+  .hero__copy{align-items:center;text-align:center}
+  .hero__media{display:none}
 }
 .hero__tagline{margin-top:30px;font-size:clamp(14px,1.4vw,17px);font-weight:700;
   letter-spacing:.34em;text-transform:uppercase;color:var(--orange)}
@@ -141,7 +153,7 @@ em{font-style:italic}
   letter-spacing:.2em;font-size:clamp(13px,1.7vw,22px);margin-top:clamp(10px,1.4vw,22px);color:var(--ink-soft)}
 .mast__line--serif em{font-style:normal;color:var(--ink-soft)}
 .hero__lede{max-width:44ch;margin:34px 0 0;font-size:clamp(16px,1.7vw,21px);line-height:1.5;color:var(--ink-soft)}
-.hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px;justify-content:center}
+.hero__cta{display:flex;gap:14px;flex-wrap:wrap}
 .hero__scroll{position:absolute;left:50%;transform:translateX(-50%);bottom:64px;display:flex;align-items:center;gap:12px;
   font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
 .hero__scroll i{width:34px;height:1px;background:rgba(236,69,21,.45);position:relative;overflow:hidden}
@@ -164,7 +176,7 @@ em{font-style:italic}
 @media (max-width:760px){ .spine{display:none} }   /* phones use the centered hero wordmark */
 
 /* centered wordmark — mobile only (desktop uses the side spine) */
-.hero__mark{display:none}
+.hero__mark{display:none;text-align:center}
 @media (max-width:760px){
   .hero__mark{display:block;font-family:'Bebas Neue',sans-serif;font-weight:400;
     font-size:clamp(96px,31vw,200px);line-height:.84;letter-spacing:.02em;color:var(--ink);margin-bottom:26px}
@@ -399,9 +411,19 @@ em{font-style:italic}
   <!-- ░░░ PAGE 1 — HERO ░░░ -->
   <section class="hero" id="hero">
     <div class="hero__mark" aria-hidden="true">PAPA’S</div>
-    <div class="hero__cta" data-hero>
-      <a href="#order" class="btn btn--order btn--lg">Order Now</a>
-      <a href="#menu" class="btn btn--ghost btn--lg">View the Counter</a>
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <p class="hero__eyebrow" data-hero>Burbank · La Crescenta, CA</p>
+        <div class="hero__cta" data-hero>
+          <a href="#order" class="btn btn--order btn--lg">Order Now</a>
+          <a href="#menu" class="btn btn--ghost btn--lg">View the Counter</a>
+        </div>
+      </div>
+      <!-- HERO MEDIA: swap the .ph div for <img src="hero.jpg" alt="..."> or
+           <video src="hero.mp4" autoplay muted loop playsinline></video> -->
+      <div class="hero__media" data-hero>
+        <div class="ph ph--sear"><span class="ph__tag ph__tag--big">Hero image / video — swap me</span></div>
+      </div>
     </div>
   </section>
 
