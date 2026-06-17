@@ -67,7 +67,7 @@
         </div>
         <div class="field">
           <label for="c-subject">What's this about?</label>
-          <select id="c-subject" name="subject">
+          <select id="c-subject" name="topic">
             <option>General question</option>
             <option>Large / catering order</option>
             <option>Feedback</option>
@@ -112,7 +112,12 @@
 
 <script>
 (function () {
-  var SHOP_EMAIL = "INFO@PAPASMEATSEAFOOD.COM"; /* TODO: replace with the real shop email */
+  /* ===== FORM DELIVERY — paste your Web3Forms access key below (web3forms.com, free, no login) ===== */
+  var ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY"; /* TODO: replace with your real Web3Forms key */
+  var SHOP_EMAIL = "INFO@PAPASMEATSEAFOOD.COM"; /* fallback only — used until the key above is set */
+  var SUBJECT = "New contact — Papa's website";
+
+  /* mobile menu */
   var toggle = document.getElementById("navToggle"), menu = document.getElementById("mobileMenu");
   if (toggle && menu) {
     function setOpen(o){menu.classList.toggle("is-open",o);toggle.classList.toggle("is-open",o);document.body.classList.toggle("menu-open",o);toggle.setAttribute("aria-expanded",o?"true":"false");}
@@ -120,16 +125,26 @@
     menu.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ setOpen(false); }); });
     document.addEventListener("keydown", function(e){ if(e.key==="Escape") setOpen(false); });
   }
+
+  /* form submit */
   var form = document.getElementById("contactForm");
+  var status = document.getElementById("formStatus");
   if (form) form.addEventListener("submit", function(e){
     e.preventDefault();
-    var d = new FormData(form), lines = [];
-    d.forEach(function(v,k){ if(v) lines.push(k.replace(/_/g," ").replace(/\b\w/g,function(m){return m.toUpperCase();})+": "+v); });
-    var subj = encodeURIComponent("Contact — " + (d.get("name") || "Papa's website"));
-    var body = encodeURIComponent(lines.join("\n\n"));
-    var status = document.getElementById("formStatus");
-    window.location.href = "mailto:" + SHOP_EMAIL + "?subject=" + subj + "&body=" + body;
-    if (status) status.textContent = "Opening your email app… if nothing happens, email us at " + SHOP_EMAIL;
+    var d = new FormData(form);
+    if (ACCESS_KEY === "YOUR_WEB3FORMS_ACCESS_KEY") {          /* not configured yet -> email-app fallback */
+      var lines = []; d.forEach(function(v,k){ if(v) lines.push(k.replace(/_/g," ").replace(/\b\w/g,function(m){return m.toUpperCase();})+": "+v); });
+      window.location.href = "mailto:" + SHOP_EMAIL + "?subject=" + encodeURIComponent(SUBJECT) + "&body=" + encodeURIComponent(lines.join("\n\n"));
+      if (status) status.textContent = "Opening your email app…";
+      return;
+    }
+    d.append("access_key", ACCESS_KEY);
+    d.append("subject", SUBJECT);
+    if (status) status.textContent = "Sending…";
+    fetch("https://api.web3forms.com/submit", { method:"POST", body:d })
+      .then(function(r){ return r.json(); })
+      .then(function(j){ if(j.success){ form.reset(); if(status) status.textContent="Thanks! We got your message — we'll be in touch."; } else { if(status) status.textContent="That didn't send. Please email us at " + SHOP_EMAIL; } })
+      .catch(function(){ if(status) status.textContent="Network error — please try again or give us a call."; });
   });
 })();
 </script>
