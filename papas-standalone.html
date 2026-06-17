@@ -347,6 +347,67 @@ em{font-style:italic}
 .foot__tagline{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(22px,3.2vw,42px);
   color:var(--egg);margin-top:42px;letter-spacing:.005em}
 
+/* ---------- MOBILE MENU (hamburger + dropdown) ---------- */
+.nav__toggle{display:none;position:fixed;top:16px;right:var(--pad);z-index:120;
+  width:46px;height:46px;background:none;border:0;cursor:pointer;
+  flex-direction:column;justify-content:center;align-items:center;gap:6px;color:var(--ink)}
+.nav__toggle span{display:block;width:26px;height:2px;background:currentColor;border-radius:2px;
+  transition:transform .3s var(--ease),opacity .3s var(--ease)}
+.nav__toggle.is-open{color:var(--egg)}
+.nav__toggle.is-open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.nav__toggle.is-open span:nth-child(2){opacity:0}
+.nav__toggle.is-open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:110;background:var(--ink);color:var(--egg);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;padding:40px;
+  opacity:0;visibility:hidden;transform:translateY(-10px);
+  transition:opacity .4s var(--ease),transform .45s var(--ease),visibility .4s}
+.mobile-menu.is-open{opacity:1;visibility:visible;transform:none}
+.mobile-menu a{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.05em;
+  font-size:clamp(34px,9vw,58px);line-height:1.1;color:var(--egg);padding:4px 0}
+.mobile-menu a:hover{color:var(--orange)}
+.mobile-menu .btn{font-family:'Archivo',sans-serif;font-size:16px;margin-top:22px;padding:15px 34px}
+body.menu-open{overflow:hidden}
+@media (max-width:900px){
+  .nav__toggle{display:flex}
+  .nav__links,.nav__order{display:none}
+}
+
+/* ---------- SUB-PAGES (Contact / Requests) ---------- */
+.page{max-width:var(--maxw);margin:0 auto;padding:clamp(120px,17vh,190px) var(--pad) clamp(70px,9vw,120px)}
+.page__head{max-width:60ch}
+.page__title{font-weight:900;letter-spacing:-.03em;line-height:.95;font-size:clamp(40px,8vw,96px);
+  text-wrap:balance;margin-top:.2em}
+.page__title em{font-family:'Fraunces',serif;font-style:italic;font-weight:500}
+.page__intro{margin-top:20px;max-width:56ch;color:var(--ink-soft);font-size:clamp(16px,1.5vw,19px);line-height:1.6}
+.page__grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(40px,6vw,84px);
+  margin-top:clamp(40px,5vw,64px);align-items:start}
+
+/* ---------- FORMS ---------- */
+.papas-form{display:flex;flex-direction:column;gap:20px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field--row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field label{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select,.field textarea{font-family:'Archivo',sans-serif;font-size:16px;color:var(--ink);
+  background:#fbf9f3;border:1.5px solid var(--line);border-radius:8px;padding:14px 16px;
+  transition:border-color .25s,box-shadow .25s;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--orange);
+  box-shadow:0 0 0 3px rgba(209,87,47,.14)}
+.field textarea{min-height:140px;resize:vertical;line-height:1.5}
+.papas-form .btn{align-self:flex-start;margin-top:6px}
+.form-note{font-size:13px;color:var(--muted);margin-top:4px}
+.form-status{font-size:15px;font-weight:600;color:var(--orange);min-height:1.2em}
+
+/* ---------- info aside ---------- */
+.aside-card{border:1px solid var(--line);border-radius:10px;padding:clamp(24px,3vw,34px);background:#fbf9f3}
+.aside-card + .aside-card{margin-top:20px}
+.aside-card h3{font-weight:900;font-size:22px;letter-spacing:-.02em;margin-bottom:12px}
+.aside-card p{color:var(--ink-soft);line-height:1.7;font-size:15px}
+.aside-card a{color:var(--orange);font-weight:600}
+@media (max-width:780px){
+  .page__grid{grid-template-columns:1fr;gap:48px}
+  .field--row{grid-template-columns:1fr}
+}
+
 /* ---------- reveal init state (JS adds .is-in) ---------- */
 [data-reveal]{opacity:0;transform:translateY(38px)}
 .is-in[data-reveal],[data-reveal].is-in{opacity:1;transform:none}
@@ -402,9 +463,21 @@ em{font-style:italic}
     <a href="#locations">Locations</a>
     <a href="#about">About Us</a>
     <a href="#reviews">Reviews</a>
+    <a href="contact.html">Contact</a>
+    <a href="request.html">Requests</a>
   </nav>
   <a href="#order" class="btn btn--order nav__order">Order Now</a>
 </header>
+<button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menu">
+  <a href="#hero">Home</a>
+  <a href="#locations">Locations</a>
+  <a href="#about">About Us</a>
+  <a href="#reviews">Reviews</a>
+  <a href="contact.html">Contact</a>
+  <a href="request.html">Requests</a>
+  <a href="#order" class="btn btn--order">Order Now</a>
+</nav>
 
 <main>
 
@@ -793,6 +866,22 @@ em{font-style:italic}
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+
+  /* ---------- mobile menu (hamburger dropdown) ---------- */
+  (function () {
+    var toggle = document.getElementById("navToggle");
+    var menu = document.getElementById("mobileMenu");
+    if (!toggle || !menu) return;
+    function setOpen(open) {
+      menu.classList.toggle("is-open", open);
+      toggle.classList.toggle("is-open", open);
+      document.body.classList.toggle("menu-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    toggle.addEventListener("click", function () { setOpen(!menu.classList.contains("is-open")); });
+    menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setOpen(false); }); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+  })();
 
   if (hasST) {
     var spine = document.getElementById("spine");

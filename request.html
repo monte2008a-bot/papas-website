@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Special Requests · Papa's Meat &amp; Seafood</title>
+<meta name="description" content="Request products, cuts, or produce you'd like to see at Papa's Meat & Seafood — Burbank & La Crescenta." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Bebas+Neue&family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&display=swap" rel="stylesheet" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+
+<h1 class="spine" aria-hidden="true"><span>PAPA’S</span></h1>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header class="nav is-scrolled" id="nav">
+  <a href="index.html" class="nav__brand">PAPAS<span class="brand-dot">.</span></a>
+  <nav class="nav__links">
+    <a href="index.html">Home</a>
+    <a href="index.html#locations">Locations</a>
+    <a href="index.html#about">About Us</a>
+    <a href="index.html#reviews">Reviews</a>
+    <a href="contact.html">Contact</a>
+    <a href="request.html">Requests</a>
+  </nav>
+  <a href="index.html#order" class="btn btn--order nav__order">Order Now</a>
+</header>
+<button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menu">
+  <a href="index.html">Home</a>
+  <a href="index.html#locations">Locations</a>
+  <a href="index.html#about">About Us</a>
+  <a href="index.html#reviews">Reviews</a>
+  <a href="contact.html">Contact</a>
+  <a href="request.html">Requests</a>
+  <a href="index.html#order" class="btn btn--order">Order Now</a>
+</nav>
+
+<main>
+  <section class="page">
+    <div class="page__head">
+      <span class="kicker">For the neighborhood</span>
+      <h1 class="page__title">Request a <em>product.</em></h1>
+      <p class="page__intro">Want a specific cut, a hard-to-find ingredient, a produce item, or a pantry staple
+        stocked? Tell us what you're looking for. We listen to our regulars — if there's demand, we'll get it
+        on the shelf or behind the counter.</p>
+    </div>
+
+    <div class="page__grid">
+      <form class="papas-form" id="requestForm" novalidate>
+        <div class="field--row">
+          <div class="field">
+            <label for="r-name">Your name</label>
+            <input id="r-name" name="name" type="text" required placeholder="First &amp; last" />
+          </div>
+          <div class="field">
+            <label for="r-contact">Email or phone</label>
+            <input id="r-contact" name="email_or_phone" type="text" required placeholder="So we can let you know" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="r-location">Which store?</label>
+          <select id="r-location" name="preferred_location">
+            <option>Either location</option>
+            <option>Burbank</option>
+            <option>La Crescenta</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="r-category">Category</label>
+          <select id="r-category" name="category">
+            <option>Meat / butcher cut</option>
+            <option>Seafood</option>
+            <option>Produce</option>
+            <option>Pantry / grocery item</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="r-item">What would you like us to stock?</label>
+          <input id="r-item" name="item_requested" type="text" required placeholder="e.g. Wagyu picanha, fresh branzino, San Marzano tomatoes…" />
+        </div>
+        <div class="field">
+          <label for="r-notes">Anything else? (quantity, brand, how often)</label>
+          <textarea id="r-notes" name="notes" placeholder="Optional details that help us source it."></textarea>
+        </div>
+        <button type="submit" class="btn btn--order btn--lg">Send Request</button>
+        <p class="form-status" id="formStatus" role="status"></p>
+        <p class="form-note">This opens your email app with the request ready to send.</p>
+      </form>
+
+      <aside>
+        <div class="aside-card">
+          <h3>How it works</h3>
+          <p>1 — Tell us the item.<br>2 — We check sourcing &amp; demand.<br>3 — We reach out when it's in.</p>
+        </div>
+        <div class="aside-card">
+          <h3>Prefer to ask in person?</h3>
+          <p>Burbank · <a href="tel:+18184762168">(818) 476-2168</a><br>
+             La Crescenta · <a href="tel:+18189309923">(818) 930-9923</a></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot__mark">PAPA’S</div>
+    <div class="foot__row">
+      <span>Meat &amp; Seafood<span class="dot-pop">.</span></span>
+      <span>Burbank · La Crescenta, CA</span>
+      <a href="index.html">Back home ↑</a>
+    </div>
+    <div class="foot__tagline">&ldquo;Taste and see..&rdquo;</div>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var SHOP_EMAIL = "INFO@PAPASMEATSEAFOOD.COM"; /* TODO: replace with the real shop email */
+  var toggle = document.getElementById("navToggle"), menu = document.getElementById("mobileMenu");
+  if (toggle && menu) {
+    function setOpen(o){menu.classList.toggle("is-open",o);toggle.classList.toggle("is-open",o);document.body.classList.toggle("menu-open",o);toggle.setAttribute("aria-expanded",o?"true":"false");}
+    toggle.addEventListener("click", function(){ setOpen(!menu.classList.contains("is-open")); });
+    menu.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", function(){ setOpen(false); }); });
+    document.addEventListener("keydown", function(e){ if(e.key==="Escape") setOpen(false); });
+  }
+  var form = document.getElementById("requestForm");
+  if (form) form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var d = new FormData(form), lines = [];
+    d.forEach(function(v,k){ if(v) lines.push(k.replace(/_/g," ").replace(/\b\w/g,function(m){return m.toUpperCase();})+": "+v); });
+    var subj = encodeURIComponent("Product Request — " + (d.get("item_requested") || "Papa's"));
+    var body = encodeURIComponent(lines.join("\n\n"));
+    var status = document.getElementById("formStatus");
+    window.location.href = "mailto:" + SHOP_EMAIL + "?subject=" + subj + "&body=" + body;
+    if (status) status.textContent = "Opening your email app… if nothing happens, email us at " + SHOP_EMAIL;
+  });
+})();
+</script>
+</body>
+</html>

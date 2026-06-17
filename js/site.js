@@ -47,6 +47,22 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  /* ---------- mobile menu (hamburger dropdown) ---------- */
+  (function () {
+    var toggle = document.getElementById("navToggle");
+    var menu = document.getElementById("mobileMenu");
+    if (!toggle || !menu) return;
+    function setOpen(open) {
+      menu.classList.toggle("is-open", open);
+      toggle.classList.toggle("is-open", open);
+      document.body.classList.toggle("menu-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    toggle.addEventListener("click", function () { setOpen(!menu.classList.contains("is-open")); });
+    menu.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setOpen(false); }); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+  })();
+
   if (hasST) {
     var spine = document.getElementById("spine");
     // switch nav + side spine to light over dark sections (locations + footer)
