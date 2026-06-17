@@ -98,7 +98,7 @@ em{font-style:italic}
 .nav.is-scrolled{background:rgba(227,225,218,.82);backdrop-filter:blur(12px);padding:14px var(--pad);border-bottom:1px solid var(--line)}
 .nav.is-dark{color:var(--egg)}
 .nav.is-dark.is-scrolled{background:rgba(22,33,15,.55);border-bottom-color:var(--line-light)}
-.nav__brand{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:27px;letter-spacing:.05em}
+.nav__brand{font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;letter-spacing:.01em}
 .brand-dot{color:var(--orange)}
 .nav__links{display:flex;gap:30px}
 .nav__links a{font-size:13px;font-weight:600;letter-spacing:.06em;opacity:.85;position:relative;padding:4px 0}
@@ -159,7 +159,7 @@ em{font-style:italic}
 @media (min-width:761px){
   body{padding-left:var(--gutter)}
   .nav,.nav.is-scrolled{padding-left:calc(var(--gutter) + var(--pad))}
-  .nav__brand{display:none}        /* the spine is the logo on desktop */
+  .nav__brand{position:absolute;left:var(--pad);top:50%;transform:translateY(-50%)}  /* top-left header logo */
 }
 @media (max-width:760px){ .spine{display:none} }   /* phones use the centered hero wordmark */
 
