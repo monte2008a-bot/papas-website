@@ -325,15 +325,15 @@ em{font-style:italic}
 .info__col--note p{color:var(--muted)}
 
 /* ---------- FOOTER ---------- */
-.foot{background:var(--ink);color:var(--egg);padding:clamp(60px,9vw,120px) var(--pad) 80px;text-align:center}
+.foot{background:var(--orange);color:#FCF9F3;padding:clamp(60px,9vw,120px) var(--pad) 80px;text-align:center}
 .foot__mark{font-weight:900;font-size:clamp(64px,22vw,320px);line-height:.8;letter-spacing:-.04em}
 .foot__row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:40px;
-  border-top:1px solid var(--line-light);padding-top:28px;font-size:13px;letter-spacing:.08em;
-  text-transform:uppercase;color:rgba(244,240,231,.7)}
-.foot__row a:hover{color:var(--orange)}
-.dot-pop{color:var(--orange)}
+  border-top:1px solid rgba(255,255,255,.28);padding-top:28px;font-size:13px;letter-spacing:.08em;
+  text-transform:uppercase;color:rgba(255,255,255,.9)}
+.foot__row a:hover{color:var(--ink)}
+.dot-pop{color:var(--ink)}
 .foot__tagline{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(22px,3.2vw,42px);
-  color:var(--egg);margin-top:42px;letter-spacing:.005em}
+  color:#FCF9F3;margin-top:42px;letter-spacing:.005em}
 
 /* ---------- MOBILE MENU (hamburger + dropdown) ---------- */
 .nav__toggle{display:none;position:fixed;top:16px;right:var(--pad);z-index:120;
