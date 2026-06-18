@@ -5,9 +5,8 @@ backend:
   name: github
   repo: monte2008a-bot/papas-website
   branch: main
-  # TODO: replace with your deployed Cloudflare Worker URL (from sveltia-cms-auth).
-  # See SETUP-CMS.md for the one-time OAuth setup.
-  base_url: https://YOUR-WORKER-SUBDOMAIN.workers.dev
+  # Cloudflare Worker (sveltia-cms-auth) that brokers GitHub OAuth login.
+  base_url: https://sveltia-cms-auth.monte2008a.workers.dev
 
 # Simple publishing: Save = commit + go live (no editorial review queue).
 publish_mode: simple
