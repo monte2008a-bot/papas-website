@@ -226,7 +226,7 @@ em{font-style:italic}
 .counter__cta{display:block;width:max-content;margin:72px auto 0}
 
 /* ---------- CINEMATIC INTRO LOADER ---------- */
-.loader{position:fixed;inset:0;z-index:10000;background:var(--ink);color:var(--egg);
+.loader{position:fixed;inset:0;z-index:10000;background:#242528;color:var(--egg);
   display:flex;align-items:center;justify-content:center;
   /* failsafe: fades itself out even if JS/CDN never runs */
   animation:loaderFailsafe .9s var(--ease) 4.2s forwards;}
