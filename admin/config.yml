@@ -1,31 +1,185 @@
-# Sveltia CMS configuration
+# Sveltia CMS configuration — Papa's Meat & Seafood
+# Lets the shop owner edit the homepage copy at /admin and Publish straight to
+# the `main` branch (which auto-deploys to GitHub Pages + Netlify).
 backend:
   name: github
   repo: monte2008a-bot/papas-website
   branch: main
-  # TODO: replace with your deployed Cloudflare Worker URL (from sveltia-cms-auth)
-  base_url: https://YOUR-WORKER-SUBDOMAIN.workers.dev
+  # Cloudflare Worker (sveltia-cms-auth) that brokers GitHub OAuth login.
+  base_url: https://sveltia-cms-auth.monte2008a.workers.dev
 
+# Simple publishing: Save = commit + go live (no editorial review queue).
+publish_mode: simple
+
+# Image uploads (for swapping placeholder frames into real photos later).
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
   - name: content
     label: "Site Content"
+    description: "Everything on the homepage. Edit the text, prices and items, then press Publish."
     files:
+      # ---------- HERO ----------
+      - name: hero
+        label: "Hero (top of page)"
+        file: "content/hero.json"
+        format: json
+        fields:
+          - { name: tagline, label: "Tagline / location line", widget: string }
+          - name: cta_primary
+            label: "Primary button"
+            widget: object
+            fields:
+              - { name: label, label: "Button text", widget: string }
+              - { name: href, label: "Link", widget: string, hint: "e.g. #order, tel:8184762168, or a full URL" }
+          - name: cta_secondary
+            label: "Secondary button"
+            widget: object
+            fields:
+              - { name: label, label: "Button text", widget: string }
+              - { name: href, label: "Link", widget: string }
+
+      # ---------- THE SANDOS ----------
+      - name: counter
+        label: "The Sandos"
+        file: "content/counter.json"
+        format: json
+        fields: &menu_fields
+          - { name: kicker, label: "Kicker (small label above title — optional)", widget: string, required: false, default: "" }
+          - { name: title_line1, label: "Title — line 1", widget: string }
+          - { name: title_line2, label: "Title — line 2 (italic accent)", widget: string, required: false, default: "" }
+          - { name: subtitle, label: "Subtitle (optional)", widget: text, required: false, default: "" }
+          - { name: cta, label: "Button text", widget: string }
+          - name: hero_items
+            label: "Featured items (2 large cards)"
+            label_singular: "Featured item"
+            widget: list
+            summary: "{{fields.name}} — {{fields.price}}"
+            fields: &menu_item_fields
+              - { name: name, label: "Name", widget: string }
+              - { name: price, label: "Price", widget: string, hint: 'e.g. $15 or mkt' }
+              - { name: tag, label: "Corner tag (optional)", widget: string, required: false, default: "" }
+              - { name: feature, label: "Highlight tag (amber 'Most Ordered' style)", widget: boolean, default: false }
+              - { name: style_a, label: "Front image style", widget: select, options: [char, meat, sear, bowl, sea, cream], default: char }
+              - { name: style_b, label: "Hover image style", widget: select, options: [char, meat, sear, bowl, sea, cream], default: meat }
+          - name: grid_items
+            label: "Grid items (4 small cards)"
+            label_singular: "Grid item"
+            widget: list
+            summary: "{{fields.name}} — {{fields.price}}"
+            fields: *menu_item_fields
+
+      # ---------- THE BOWLS ----------
+      - name: bowls
+        label: "The Bowls"
+        file: "content/bowls.json"
+        format: json
+        fields: *menu_fields
+
+      # ---------- THE MEATS ----------
+      - name: meats
+        label: "The Meats"
+        file: "content/meats.json"
+        format: json
+        fields: *menu_fields
+
+      # ---------- THE SEAFOODS ----------
+      - name: seafoods
+        label: "The Seafoods"
+        file: "content/seafoods.json"
+        format: json
+        fields: *menu_fields
+
+      # ---------- LOCATIONS ----------
+      - name: locations
+        label: "Locations section"
+        file: "content/locations.json"
+        format: json
+        fields:
+          - { name: kicker, label: "Kicker (optional)", widget: string, required: false, default: "" }
+          - { name: title_line1, label: "Title — line 1", widget: string }
+          - { name: title_line2, label: "Title — line 2 (italic accent)", widget: string, required: false, default: "" }
+          - { name: bg_tag, label: "Background image caption", widget: string }
+          - name: cards
+            label: "Location cards"
+            label_singular: "Location"
+            widget: list
+            summary: "{{fields.num}} — {{fields.name}}"
+            fields:
+              - { name: num, label: "Number", widget: string, hint: "e.g. 01" }
+              - { name: name, label: "Name", widget: string }
+              - { name: tag, label: "Description", widget: text }
+              - { name: link_label, label: "Link text", widget: string }
+              - { name: href, label: "Link", widget: string, hint: "e.g. burbank.html" }
+
+      # ---------- ABOUT ----------
+      - name: about
+        label: "About section"
+        file: "content/about.json"
+        format: json
+        fields:
+          - { name: kicker, label: "Kicker (optional)", widget: string, required: false, default: "" }
+          - { name: title_line1, label: "Title — line 1", widget: string, hint: "Use a line break inside the box for a multi-line title" }
+          - { name: title_line2, label: "Title — line 2 (italic accent)", widget: string, required: false, default: "" }
+          - name: paragraphs
+            label: "Paragraphs"
+            label_singular: "Paragraph"
+            widget: list
+            field: { name: text, label: "Paragraph", widget: text }
+          - name: facts
+            label: "Facts (optional)"
+            label_singular: "Fact"
+            widget: list
+            required: false
+            summary: "{{fields.label}}"
+            fields:
+              - { name: label, label: "Label", widget: string }
+              - { name: detail, label: "Detail", widget: string }
+
+      # ---------- REVIEWS ----------
       - name: reviews
         label: "Reviews"
         file: "content/reviews.json"
         format: json
         description: "The customer reviews shown in the 'Loved by the neighborhood' section."
         fields:
-          - name: reviews
+          - { name: kicker, label: "Kicker (optional)", widget: string, required: false, default: "" }
+          - { name: title_line1, label: "Title — line 1", widget: string }
+          - { name: title_line2, label: "Title — line 2 (italic accent)", widget: string, required: false, default: "" }
+          - name: items
             label: "Reviews"
             label_singular: "Review"
             widget: list
-            summary: "{{fields.name}} — {{fields.location}}"
+            summary: "{{fields.source}}"
             fields:
-              - { name: rating, label: "Stars (1–5)", widget: number, default: 5, value_type: int, min: 1, max: 5 }
+              - { name: stars, label: "Stars (1–5)", widget: number, default: 5, value_type: int, min: 1, max: 5 }
               - { name: quote, label: "Review text", widget: text }
-              - { name: name, label: "Reviewer name", widget: string }
-              - { name: location, label: "Location", widget: select, options: ["Burbank", "La Crescenta"], default: "Burbank" }
+              - { name: source, label: "Source (name / platform / location)", widget: string }
+
+      # ---------- INFO / ORDER ----------
+      - name: info
+        label: "Info & order columns"
+        file: "content/info.json"
+        format: json
+        fields:
+          - name: columns
+            label: "Columns"
+            label_singular: "Column"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: "Heading", widget: string }
+              - name: lines
+                label: "Lines"
+                label_singular: "Line"
+                widget: list
+                field: { name: text, label: "Line", widget: string }
+              - { name: note, label: "Style as muted note (no button)", widget: boolean, default: false }
+              - name: cta
+                label: "Button (leave label blank for none)"
+                widget: object
+                required: false
+                fields:
+                  - { name: label, label: "Button text", widget: string, required: false, default: "" }
+                  - { name: href, label: "Link", widget: string, required: false, default: "" }

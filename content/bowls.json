@@ -1,0 +1,17 @@
+{
+  "kicker": "",
+  "title_line1": "The",
+  "title_line2": "Bowls.",
+  "subtitle": "",
+  "cta": "Order the Counter",
+  "hero_items": [
+    { "name": "The Steak Bowl", "price": "$15", "tag": "Most Ordered", "feature": true, "style_a": "bowl", "style_b": "sear" },
+    { "name": "The Steak Bowl", "price": "$15", "tag": "Steak Bowl · ¾ View", "feature": false, "style_a": "sear", "style_b": "bowl" }
+  ],
+  "grid_items": [
+    { "name": "Chicken Bowl", "price": "$13", "tag": "New", "feature": false, "style_a": "char", "style_b": "bowl" },
+    { "name": "Salmon Bowl", "price": "$14", "tag": "New", "feature": false, "style_a": "sea", "style_b": "bowl" },
+    { "name": "Carnitas Bowl", "price": "$13", "tag": "", "feature": false, "style_a": "meat", "style_b": "bowl" },
+    { "name": "Veggie Bowl", "price": "$12", "tag": "", "feature": false, "style_a": "bowl", "style_b": "char" }
+  ]
+}
