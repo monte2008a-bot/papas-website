@@ -1,0 +1,31 @@
+# Sveltia CMS configuration
+backend:
+  name: github
+  repo: monte2008a-bot/papas-website
+  branch: main
+  # TODO: replace with your deployed Cloudflare Worker URL (from sveltia-cms-auth)
+  base_url: https://YOUR-WORKER-SUBDOMAIN.workers.dev
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: content
+    label: "Site Content"
+    files:
+      - name: reviews
+        label: "Reviews"
+        file: "content/reviews.json"
+        format: json
+        description: "The customer reviews shown in the 'Loved by the neighborhood' section."
+        fields:
+          - name: reviews
+            label: "Reviews"
+            label_singular: "Review"
+            widget: list
+            summary: "{{fields.name}} — {{fields.location}}"
+            fields:
+              - { name: rating, label: "Stars (1–5)", widget: number, default: 5, value_type: int, min: 1, max: 5 }
+              - { name: quote, label: "Review text", widget: text }
+              - { name: name, label: "Reviewer name", widget: string }
+              - { name: location, label: "Location", widget: select, options: ["Burbank", "La Crescenta"], default: "Burbank" }

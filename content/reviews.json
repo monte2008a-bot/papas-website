@@ -1,0 +1,22 @@
+{
+  "reviews": [
+    {
+      "rating": 5,
+      "quote": "Best tri-tip sandwich in the valley, full stop. The family treats you like you've been coming for years — because you will be.",
+      "name": "Placeholder",
+      "location": "Burbank"
+    },
+    {
+      "rating": 5,
+      "quote": "Found my new neighborhood market. Incredible cuts, kind people, and they remembered my order the second time in. Rare these days.",
+      "name": "Placeholder",
+      "location": "La Crescenta"
+    },
+    {
+      "rating": 5,
+      "quote": "You can taste the care. This is what a butcher shop should feel like — old-school heart, modern everything else.",
+      "name": "Placeholder",
+      "location": "Burbank"
+    }
+  ]
+}
