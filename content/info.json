@@ -1,0 +1,34 @@
+{
+  "columns": [
+    {
+      "title": "Burbank",
+      "lines": [
+        "445 S Glenoaks Blvd, Burbank, CA 91506",
+        "Open 7 days · 11am–7pm",
+        "(818) 476-2168"
+      ],
+      "note": false,
+      "cta": { "label": "Order Burbank", "href": "#" }
+    },
+    {
+      "title": "La Crescenta",
+      "lines": [
+        "3857 Foothill Blvd, Glendale, CA 91214",
+        "Open 7 days · 10am–8pm",
+        "(818) 930-9923"
+      ],
+      "note": false,
+      "cta": { "label": "Order La Crescenta", "href": "#" }
+    },
+    {
+      "title": "Papa's",
+      "lines": [
+        "Your family butcher & kitchen.",
+        "Cut to order, driven by passion,",
+        "served like it's personal, because it is."
+      ],
+      "note": true,
+      "cta": { "label": "", "href": "" }
+    }
+  ]
+}

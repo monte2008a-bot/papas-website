@@ -1,0 +1,17 @@
+{
+  "kicker": "",
+  "title_line1": "The",
+  "title_line2": "Sandos.",
+  "subtitle": "",
+  "cta": "Order the Counter",
+  "hero_items": [
+    { "name": "Pastrami on Rye", "price": "$15", "tag": "Most Ordered", "feature": true, "style_a": "char", "style_b": "meat" },
+    { "name": "Pastrami on Rye", "price": "$15", "tag": "Pastrami · ¾ View", "feature": false, "style_a": "meat", "style_b": "char" }
+  ],
+  "grid_items": [
+    { "name": "Tri-Tip", "price": "$14", "tag": "New", "feature": false, "style_a": "sear", "style_b": "char" },
+    { "name": "The Italian", "price": "$14", "tag": "New", "feature": false, "style_a": "meat", "style_b": "sear" },
+    { "name": "Meatball Parm", "price": "$13", "tag": "", "feature": false, "style_a": "char", "style_b": "meat" },
+    { "name": "Chicken Cutlet", "price": "$13", "tag": "", "feature": false, "style_a": "bowl", "style_b": "sea" }
+  ]
+}

@@ -393,5 +393,20 @@
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
 <script src="js/content.js"></script>
 <script src="js/site.js"></script>
+<!-- bootstrap: render CMS content first, THEN start the motion layer -->
+<script>
+(function () {
+  function start() {
+    var initMotion = window.__initMotion || function () {};
+    var render = window.renderContent || function () { return Promise.resolve(); };
+    render().then(initMotion).catch(function () { initMotion(); });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
+  }
+})();
+</script>
 </body>
 </html>

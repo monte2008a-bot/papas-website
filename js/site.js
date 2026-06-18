@@ -2,8 +2,13 @@
    PAPAS — motion layer
    Lenis smooth scroll + GSAP ScrollTrigger
    Cinematic reveals, parallax, floating menu, nav states
+
+   Exposed as window.__initMotion (NOT auto-run). The bootstrap in
+   index.html calls renderContent().then(__initMotion) so the motion
+   layer binds AFTER content.js renders each section — otherwise the
+   scroll-reveals would attach to elements that get replaced.
    ============================================================ */
-(function () {
+window.__initMotion = function () {
   "use strict";
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -196,4 +201,4 @@
   if (hasST && document.fonts && document.fonts.ready) {
     document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
   }
-})();
+};

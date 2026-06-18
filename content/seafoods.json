@@ -1,0 +1,17 @@
+{
+  "kicker": "",
+  "title_line1": "The",
+  "title_line2": "Seafoods.",
+  "subtitle": "",
+  "cta": "Order the Counter",
+  "hero_items": [
+    { "name": "Day-Boat Salmon", "price": "mkt", "tag": "Most Ordered", "feature": true, "style_a": "sea", "style_b": "cream" },
+    { "name": "Day-Boat Salmon", "price": "mkt", "tag": "Salmon · ¾ View", "feature": false, "style_a": "cream", "style_b": "sea" }
+  ],
+  "grid_items": [
+    { "name": "Jumbo Shrimp", "price": "$16", "tag": "New", "feature": false, "style_a": "cream", "style_b": "sea" },
+    { "name": "Ahi Tuna", "price": "mkt", "tag": "New", "feature": false, "style_a": "sea", "style_b": "cream" },
+    { "name": "Sea Scallops", "price": "mkt", "tag": "", "feature": false, "style_a": "cream", "style_b": "sea" },
+    { "name": "Branzino", "price": "$18", "tag": "", "feature": false, "style_a": "sea", "style_b": "cream" }
+  ]
+}

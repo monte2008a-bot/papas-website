@@ -1,0 +1,17 @@
+{
+  "kicker": "",
+  "title_line1": "The",
+  "title_line2": "Meats.",
+  "subtitle": "",
+  "cta": "Order the Counter",
+  "hero_items": [
+    { "name": "Dry-Aged Ribeye", "price": "mkt", "tag": "Most Ordered", "feature": true, "style_a": "meat", "style_b": "char" },
+    { "name": "Dry-Aged Ribeye", "price": "mkt", "tag": "Ribeye · ¾ View", "feature": false, "style_a": "char", "style_b": "meat" }
+  ],
+  "grid_items": [
+    { "name": "Tri-Tip", "price": "$16", "tag": "New", "feature": false, "style_a": "sear", "style_b": "meat" },
+    { "name": "Filet Mignon", "price": "mkt", "tag": "New", "feature": false, "style_a": "meat", "style_b": "char" },
+    { "name": "Carne Asada", "price": "$15", "tag": "", "feature": false, "style_a": "char", "style_b": "sear" },
+    { "name": "Lamb Chops", "price": "mkt", "tag": "", "feature": false, "style_a": "sear", "style_b": "char" }
+  ]
+}

@@ -62,9 +62,13 @@ Chose **Sveltia CMS** (modern Decap/Netlify-CMS successor) because Netlify Ident
 
 **DONE (already in the repo):**
 - `admin/index.html` — loads Sveltia from `https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js`.
-- `admin/config.yml` — backend `github`, repo `monte2008a-bot/papas-website`, branch `main`. **`base_url` is a PLACEHOLDER** (`https://YOUR-WORKER-SUBDOMAIN.workers.dev`) waiting for the real Cloudflare Worker URL.
-- First editable collection: **Reviews** → edits `content/reviews.json`.
-- `js/content.js` — fetches `content/reviews.json` and renders the review cards (falls back to hard-coded reviews if it can't load). Loaded on index.html via `<script src="js/content.js">`; review grid has `id="review-grid"`.
+- `admin/config.yml` — backend `github`, repo `monte2008a-bot/papas-website`, branch `main`, `publish_mode: simple`. **`base_url` is a PLACEHOLDER** (`https://YOUR-WORKER-SUBDOMAIN.workers.dev`) waiting for the real Cloudflare Worker URL.
+- **FULL content refactor complete.** All editable homepage copy now lives in `/content/*.json` — one file per section: `hero.json`, `counter.json` (Sandos), `bowls.json`, `meats.json`, `seafoods.json`, `locations.json`, `about.json`, `reviews.json`, `info.json`.
+- One **"Site Content"** collection in `config.yml` with a `files:` entry per JSON (list widgets for repeating items; `style_a`/`style_b` are select widgets: char/meat/sear/bowl/sea/cream). The four menu sections share field definitions via YAML anchors.
+- `js/content.js` — exposes `window.renderContent()` (Promise). Fetches every `content/*.json` and renders each section, **keeping the hand-coded markup in `index.html` as a graceful fallback** (a failed fetch never blanks the site). Generated elements keep their original classes AND `data-reveal` attributes.
+- `js/site.js` motion layer is now `window.__initMotion` (NOT auto-run). A bootstrap at the bottom of `index.html` runs `renderContent().then(__initMotion)` so scroll-reveals bind AFTER content renders.
+- `SETUP-CMS.md` — documents the owner's one-time OAuth setup.
+- Verified by rendering `index.html` in jsdom (`verify-cms.mjs`, fetch stubbed to read local JSON): all sections populate and `data-reveal` attributes are present (58 checks pass).
 
 **PENDING — the owner/user must do this (their accounts), then report back:**
 1. Deploy the **`sveltia-cms-auth` Cloudflare Worker** (free) — repo: https://github.com/sveltia/sveltia-cms-auth (has a "Deploy to Cloudflare Workers" button). Get the worker URL `https://sveltia-cms-auth.<sub>.workers.dev`.
@@ -73,7 +77,7 @@ Chose **Sveltia CMS** (modern Decap/Netlify-CMS successor) because Netlify Ident
 4. **Give the worker URL → put it in `admin/config.yml` `base_url`** (one-line edit), commit, push.
 5. Then: owner goes to `…/admin/`, "Sign in with GitHub", edits, Publish → live. (Owner's GitHub account must be a repo **collaborator** with write access.)
 
-**NEXT after login works:** expand editable content beyond Reviews → **hours/phones/addresses, the menu items (Sandos/Bowls/Meats/Seafoods + prices), hero & about text, and photo slots** (same pattern: a `content/*.json` file + a collection in `config.yml` + injection in `js/content.js`).
+**NEXT after login works:** content refactor is done — the owner can already edit hours/phones/addresses, menu items + prices, hero, about, locations and reviews. Remaining: **photo slots** (swap the `.m-obj` / `.ph` / `.g` placeholder frames for real `<img>`; the CMS `media_folder` is `assets/uploads` and ready for uploads).
 
 ---
 
@@ -111,7 +115,7 @@ Chose **Sveltia CMS** (modern Decap/Netlify-CMS successor) because Netlify Ident
 - **La Crescenta:** 3857 Foothill Blvd, Glendale, CA 91214 · Open 7 days 10am–8pm · (818) 930-9923
 
 ## Open to-dos
-- [ ] **FINISH the Sveltia CMS** (the active task — see CMS section: worker URL → config base_url → expand editable content).
+- [ ] **FINISH the Sveltia CMS login** — content refactor is done; owner still needs the one-time OAuth setup in `SETUP-CMS.md` (deploy worker → set vars → put worker URL in `config.yml` `base_url` → add owner as collaborator).
 - [ ] **Forms delivery:** add the Web3Forms key OR switch Contact/Requests to Netlify Forms; set the real shop email.
 - [ ] **Real photos** — swap placeholder frames in the menu grids, hero panel, locations bg, about gallery (`.m-obj`, `.ph`, `.g`, `.hero__media`).
 - [ ] **Real reviews** — owner will replace placeholders (now editable via CMS once login works).
