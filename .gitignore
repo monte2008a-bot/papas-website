@@ -13,3 +13,8 @@ node_modules/
 # ruflo runtime
 .claude-flow/
 .swarm/
+
+# private business docs — must NOT be published to the public site
+*-Quote.html
+*-quote.html
+quotes/
