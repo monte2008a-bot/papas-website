@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ── SEO ── -->
+<title>Dr. Juice — Cold-Pressed Juice, Smoothies &amp; Açaí Bowls · Glendale, CA</title>
+<meta name="description" content="Dr. Juice makes 100% natural cold-pressed juices, smoothies, açaí bowls and wellness shots fresh every day in Glendale, CA. No added sugar, no water, no chemicals. Rated 5.0★ by 140+ locals. Order pickup or delivery." />
+<meta name="keywords" content="Dr Juice, cold pressed juice Glendale, açaí bowls Glendale, smoothies Glendale, wellness shots, juice bar Glendale CA" />
+<link rel="canonical" href="https://drjuice.menu/" />
+
+<!-- ── Open Graph / social ── -->
+<meta property="og:type" content="restaurant" />
+<meta property="og:site_name" content="Dr. Juice" />
+<meta property="og:title" content="Dr. Juice — Real Fruit. Nothing Else. · Glendale, CA" />
+<meta property="og:description" content="100% natural cold-pressed juices, smoothies & açaí bowls made fresh daily. No added sugar, no water, no chemicals. 5.0★ · 140+ reviews." />
+<meta property="og:url" content="https://drjuice.menu/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Figtree:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&display=swap" rel="stylesheet" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="css/site.css" />
+
+<!-- ── Local SEO structured data (fixes: reviews + local schema not surfaced) ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Dr. Juice",
+  "description": "100% natural cold-pressed juices, smoothies, açaí bowls and wellness shots made fresh daily. No added sugar, water or chemicals.",
+  "image": "https://drjuice.menu/assets/og.jpg",
+  "servesCuisine": ["Juice", "Smoothies", "Açaí Bowls", "Health Food"],
+  "priceRange": "$10–$20",
+  "telephone": "+13233798119",
+  "url": "https://drjuice.menu/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1250 W Glenoaks Blvd Unit D",
+    "addressLocality": "Glendale",
+    "addressRegion": "CA",
+    "postalCode": "91201",
+    "addressCountry": "US"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 34.1706, "longitude": -118.2731 },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "07:00", "closes": "19:00"
+  }],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "142" },
+  "sameAs": [
+    "https://www.instagram.com/dr.juice.usa/",
+    "https://apps.apple.com/us/app/dr-juice-natural-fruit-juice/id6755841157"
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ░░░ INTRO LOADER ░░░ -->
+<div class="loader" id="loader">
+  <div class="loader__inner">
+    <div class="loader__word"><span>DR<b>.</b>JUICE</span></div>
+    <div class="loader__bar"><i></i></div>
+    <div class="loader__count">00</div>
+  </div>
+</div>
+
+<!-- side spine wordmark -->
+<h1 class="spine" id="spine"><span>DR<b>.</b>JUICE — GLENDALE</span></h1>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- ░░░ NAV ░░░ -->
+<header class="nav" id="nav">
+  <a href="#hero" class="nav__brand">DR.JUICE<span class="brand-dot">.</span></a>
+  <nav class="nav__links">
+    <a href="#menu">Menu</a>
+    <a href="#shots">Wellness Shots</a>
+    <a href="#story">Our Story</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#visit">Visit</a>
+  </nav>
+  <a href="#visit" class="btn btn--order nav__order">Order Now</a>
+</header>
+<button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menu">
+  <a href="#menu">Menu</a>
+  <a href="#shots">Wellness Shots</a>
+  <a href="#story">Our Story</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#visit">Visit</a>
+  <a href="#visit" class="btn btn--order">Order Now</a>
+</nav>
+
+<main>
+
+  <!-- ░░░ HERO ░░░ -->
+  <section class="hero" id="hero">
+    <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
+    <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <div class="hero__badge" data-hero>
+          <span class="stars">★★★★★</span>
+          <b>5.0</b><span>· 142 Google reviews</span>
+        </div>
+        <p class="eyebrow" data-hero>Glendale, CA · Cold-pressed daily</p>
+        <h2 class="hero__title" data-hero>Real fruit.<br><em>Nothing</em> else.</h2>
+        <p class="hero__lead" data-hero>Cold-pressed juices, smoothies &amp; açaí bowls made fresh every morning.
+          No added sugar. No water. No chemicals. Just what your body actually wants.</p>
+        <div class="hero__cta" data-hero>
+          <a href="#visit" class="btn btn--order btn--lg">Order Now</a>
+          <a href="#menu" class="btn btn--ghost btn--lg">See the Menu</a>
+        </div>
+        <div class="hero__proof" data-hero>
+          <span><b>Pickup &amp; delivery</b> · 7 days</span>
+          <span><b>Open</b> 7am–7pm</span>
+          <span><b>Family-owned</b> in Glendale</span>
+        </div>
+      </div>
+
+      <!-- HERO MEDIA: swap .ph for <img src="assets/hero.jpg" alt="Dr. Juice cold-pressed juice"> -->
+      <div class="hero__media" data-hero>
+        <div class="ph ph--citrus"><span class="ph__tag ph__tag--big">Hero photo / reel — swap me</span></div>
+        <div class="hero__pill">
+          <b>Bottled this morning</b>
+          <span>Never from concentrate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ TRUST STRIP ░░░ -->
+  <div class="trust" aria-label="What makes Dr. Juice different">
+    <div class="trust__row">
+      <span>No added sugar</span><span>No water</span><span>No ice</span><span>No chemicals</span><span>Cold-pressed daily</span><span>100% natural</span>
+      <span>No added sugar</span><span>No water</span><span>No ice</span><span>No chemicals</span><span>Cold-pressed daily</span><span>100% natural</span>
+    </div>
+  </div>
+
+  <!-- ░░░ MENU ░░░ -->
+  <section class="menu" id="menu">
+    <div class="section-head">
+      <p class="eyebrow" data-reveal>The Menu</p>
+      <h2 class="section-title" data-reveal>Made fresh, <em>every morning.</em></h2>
+    </div>
+
+    <!-- JUICES -->
+    <div class="menu-block">
+      <div class="menu-block__head">
+        <h3 class="section-title" style="font-size:clamp(2rem,4vw,3rem)" data-reveal>Cold-Pressed <em>Juices</em></h3>
+        <p data-reveal>Pounds of raw produce, pressed — not blended — so nothing separates the nutrients from the taste.</p>
+      </div>
+      <div class="menu-grid menu-grid--feature">
+        <article class="item item--big" data-reveal>
+          <div class="item__shot"><span class="item__tag">Bestseller</span><div class="ph ph--green"></div></div>
+          <div class="item__body">
+            <div class="item__top"><span class="item__name">Viva Juice</span><span class="item__price">$13.50</span></div>
+            <p class="item__desc">Celery, green apple, cucumber, lemon &amp; ginger. Our most-ordered green — clean, crisp, alive.</p>
+            <span class="item__meta">Green · Detox</span>
+          </div>
+        </article>
+        <article class="item" data-reveal>
+          <div class="item__shot"><div class="ph ph--citrus"></div></div>
+          <div class="item__body">
+            <div class="item__top"><span class="item__name">Rise &amp; Juice</span><span class="item__price">$14</span></div>
+            <p class="item__desc">Orange, carrot, turmeric &amp; ginger. Morning immunity in a bottle.</p>
+            <span class="item__meta">Citrus · Immunity</span>
+          </div>
+        </article>
+        <article class="item" data-reveal>
+          <div class="item__shot"><div class="ph ph--berry"></div></div>
+          <div class="item__body">
+            <div class="item__top"><span class="item__name">Juice Coach</span><span class="item__price">$13</span></div>
+            <p class="item__desc">Beet, apple, carrot &amp; lemon. Earthy, sweet and built for recovery.</p>
+            <span class="item__meta">Root · Recovery</span>
+          </div>
+        </article>
+        <article class="item" data-reveal>
+          <div class="item__shot"><div class="ph ph--sun"></div></div>
+          <div class="item__body">
+            <div class="item__top"><span class="item__name">Positive Juice</span><span class="item__price">$12.50</span></div>
+            <p class="item__desc">Simply orange &amp; carrot. Two ingredients, zero shortcuts.</p>
+            <span class="item__meta">Citrus · Everyday</span>
+          </div>
+        </article>
+        <article class="item" data-reveal>
+          <div class="item__shot"><div class="ph ph--leaf"></div></div>
+          <div class="item__body">
+            <div class="item__top"><span class="item__name">Vegetable Juice</span><span class="item__price">$12.50</span></div>
+            <p class="item__desc">Celery, spinach, kale, cucumber &amp; parsley. The one your doctor would order.</p>
+            <span class="item__meta">Green · Greens</span>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- SMOOTHIES -->
+    <div class="menu-block">
+      <div class="menu-block__head">
+        <h3 class="section-title" style="font-size:clamp(2rem,4vw,3rem)" data-reveal>Smoothies</h3>
+        <p data-reveal>Whole fruit, real nut butters and no syrups — thick, filling and never watered down with ice.</p>
+      </div>
+      <div class="menu-grid">
+        <article class="item" data-reveal>
+          <div class="item__shot"><span class="item__tag">Most Ordered</span><div class="ph ph--berry"></div></div>
+          <div class="item__body">
+            <div class="item__top"><span class="item__name">Razolia</span><span class="item__price">$13</span></div>
+            <p class="item__desc">The owner's own blend — banana, strawberry, almond butter, honey &amp; oat milk.</p>
+            <span class="item__meta">Signature</span>
+          </div>
+        </article>
+        <article class="item" data-reveal>
+          <div class="item__shot"><div class="ph ph--green"></div></div>
+          <div class="item__body">
+            <div class="item__top"><span class="item__name">Jungle</span><span class="item__price">$12</span></div>
+            <p class="item__desc">Mango, pineapple, banana, spinach &amp; coconut water. Tropical, green, gone in minutes.</p>
+            <span class="item__meta">Tropical</span>
+          </div>
+        </article>
+        <article class="item" data-reveal>
+          <div class="item__shot"><div class="ph ph--sun"></div></div>
+          <div class="item__body">
+            <div class="item__top"><span class="item__name">California Dream</span><span class="item__price">$12</span></div>
+            <p class="item__desc">Strawberry, banana, almond milk &amp; dates. Naturally sweet, no sugar added.</p>
+            <span class="item__meta">Classic</span>
+          </div>
+        </article>
+        <article class="item" data-reveal>
+          <div class="item__shot"><span class="item__tag item__tag--green">Post-Workout</span><div class="ph ph--citrus"></div></div>
+          <div class="item__body">
+            <div class="item__top"><span class="item__name">Big Boy</span><span class="item__price">$13</span></div>
+            <p class="item__desc">Banana, peanut butter, protein, oats &amp; honey. Recovery fuel that actually fills you up.</p>
+            <span class="item__meta">Protein</span>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- AÇAÍ BOWLS -->
+    <div class="menu-block">
+      <div class="menu-block__head">
+        <h3 class="section-title" style="font-size:clamp(2rem,4vw,3rem)" data-reveal>Açaí <em>Bowls</em></h3>
+        <p data-reveal>Real Amazonian açaí, hand-topped to order. Thick, cold and Instagram-famous for a reason.</p>
+      </div>
+      <div class="menu-grid menu-grid--feature">
+        <article class="item item--big" data-reveal>
+          <div class="item__shot"><span class="item__tag">Imported from Brazil</span><div class="ph ph--berry"></div></div>
+          <div class="item__body">
+            <div class="item__top"><span class="item__name">Almond na Tigela</span><span class="item__price">$15</span></div>
+            <p class="item__desc">Our most popular bowl — Amazonian açaí topped with granola, coconut flakes, fresh strawberry &amp; banana, almond butter and raw honey.</p>
+            <span class="item__meta">Most Popular</span>
+          </div>
+        </article>
+        <article class="item" data-reveal>
+          <div class="item__shot"><div class="ph ph--leaf"></div></div>
+          <div class="item__body">
+            <div class="item__top"><span class="item__name">Dr. Juice Bowl</span><span class="item__price">$14</span></div>
+            <p class="item__desc">House açaí base, seasonal fruit, granola &amp; honey drizzle. Build it your way.</p>
+            <span class="item__meta">Classic</span>
+          </div>
+        </article>
+        <article class="item" data-reveal>
+          <div class="item__shot"><div class="ph ph--citrus"></div></div>
+          <div class="item__body">
+            <div class="item__top"><span class="item__name">Strawberry Coconut</span><span class="item__price">$14</span></div>
+            <p class="item__desc">Strawberry &amp; coconut-water base, fresh berries and toasted coconut. Light and bright.</p>
+            <span class="item__meta">Refresher</span>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="menu__cta">
+      <a href="#visit" class="btn btn--order btn--lg" data-reveal>Order the Full Menu</a>
+      <p class="menu__note" data-reveal>Lineup &amp; prices vary with the season — tap through to the live menu to order pickup or delivery.</p>
+    </div>
+  </section>
+
+  <!-- ░░░ WELLNESS SHOTS ░░░ -->
+  <section class="shots" id="shots">
+    <div class="shots__grid">
+      <div class="shots__copy">
+        <span class="eyebrow" data-reveal>Wellness Shots</span>
+        <h2 data-reveal>A little&nbsp;bottle, a <em>big</em> difference.</h2>
+        <p data-reveal>Cold-pressed, concentrated and knocked back at the counter. The fastest way to
+          get real ginger, turmeric and greens into your day — no pills, no powders.</p>
+        <div class="shots__list">
+          <div class="shot-chip" data-reveal><b>Ginger</b><span>$5 · fire starter</span></div>
+          <div class="shot-chip" data-reveal><b>Turmeric</b><span>$5 · anti-inflammatory</span></div>
+          <div class="shot-chip" data-reveal><b>Immunity</b><span>$6 · ginger·lemon·cayenne·honey</span></div>
+          <div class="shot-chip" data-reveal><b>Wheatgrass</b><span>$4 · pure greens</span></div>
+        </div>
+      </div>
+      <div id="floatField" data-reveal>
+        <div class="float-item float-item--1"><div class="shot ph ph--citrus"></div></div>
+        <div class="float-item float-item--2"><div class="shot ph ph--sun"></div></div>
+        <div class="float-item float-item--3"><div class="shot ph ph--green"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ OUR STORY ░░░ -->
+  <section class="story" id="story">
+    <div class="story__head">
+      <p class="eyebrow" data-reveal>Our Story</p>
+      <h2 class="section-title" data-reveal>Started by a family that<br>actually <em>drinks this stuff.</em></h2>
+    </div>
+
+    <div class="story__gallery">
+      <div class="g g--tall" data-parallax data-speed="0.12"><div class="ph ph--green"><span class="ph__tag">The press</span></div></div>
+      <div class="g g--wide" data-parallax data-speed="-0.08"><div class="ph ph--citrus"><span class="ph__tag">The counter</span></div></div>
+      <div class="g g--sm" data-parallax data-speed="0.16"><div class="ph ph--berry"><span class="ph__tag">Açaí</span></div></div>
+      <div class="g g--med" data-parallax data-speed="0.1"><div class="ph ph--sun"><span class="ph__tag">Fresh fruit</span></div></div>
+      <div class="g g--sm2" data-parallax data-speed="-0.12"><div class="ph ph--leaf"><span class="ph__tag">Greens</span></div></div>
+    </div>
+
+    <div class="story__essay" data-reveal>
+      <p>Dr. Juice started with a simple, stubborn idea: that a juice should be made of fruit and vegetables — and nothing else.</p>
+      <p>No added sugar. No syrups. No water to stretch it, no ice to water it down, no chemicals to keep it on a shelf for a month. We make everything fresh, in-house, every single day.</p>
+      <p>What began as one Glendale counter has become a neighborhood habit — regulars we know by name, workouts fueled, mornings started right. We're family-owned, and it shows in every bottle.</p>
+      <p>Come in hungry. Leave better.</p>
+      <div class="story__sign" data-reveal>— The Dr. Juice family</div>
+    </div>
+  </section>
+
+  <!-- ░░░ REVIEWS ░░░ -->
+  <section class="reviews" id="reviews">
+    <div class="section-head section-head--center">
+      <p class="eyebrow" data-reveal>Loved in Glendale</p>
+      <h2 class="section-title" data-reveal>Don't take <em>our</em> word for it.</h2>
+    </div>
+
+    <div class="reviews__stat">
+      <div data-reveal><div class="num">5.0</div><div class="stars">★★★★★</div><div class="lbl">142 Google reviews</div></div>
+      <div data-reveal><div class="num">218</div><div class="lbl">Yelp reviews</div></div>
+      <div data-reveal><div class="num">7yrs</div><div class="lbl">Serving the neighborhood</div></div>
+    </div>
+
+    <div class="review-grid">
+      <figure class="review" data-reveal>
+        <div class="review__stars">★★★★★</div>
+        <blockquote>"Best juice spot in Glendale, hands down. You can taste that it was made fresh — nothing fake, nothing watery."</blockquote>
+        <figcaption>— Google review</figcaption>
+      </figure>
+      <figure class="review" data-reveal>
+        <div class="review__stars">★★★★★</div>
+        <blockquote>"The Almond na Tigela açaí bowl is unreal. Real Brazilian açaí, generous toppings, and the staff actually cares."</blockquote>
+        <figcaption>— Yelp review</figcaption>
+      </figure>
+      <figure class="review" data-reveal>
+        <div class="review__stars">★★★★★</div>
+        <blockquote>"I stop in every morning for the Viva Juice. Friendly, fast and genuinely healthy. My whole family is hooked."</blockquote>
+        <figcaption>— Google review</figcaption>
+      </figure>
+    </div>
+    <p class="menu__note" style="text-align:center" data-reveal>Real ratings from Google &amp; Yelp. Quotes shown are representative — swap in verbatim reviews before launch.</p>
+  </section>
+
+  <!-- ░░░ VISIT / ORDER (cinematic) ░░░ -->
+  <section class="locations" id="visit">
+    <div class="locations__bg" data-loc-bg>
+      <div class="ph ph--green locations__img"><span class="ph__tag ph__tag--big">Storefront photo — swap me</span></div>
+    </div>
+    <div class="locations__overlay"></div>
+    <div class="locations__inner">
+      <h2 class="section-title section-title--light" data-reveal>Come see us when<br>you're <em>thirsty.</em></h2>
+      <p class="locations__sub" data-reveal>Order ahead for pickup, get it delivered, or just walk in. We're pressing from 7am.</p>
+
+      <div class="visit-card" data-reveal>
+        <h3>Dr. Juice · Glendale</h3>
+        <p class="addr">1250 W Glenoaks Blvd, Unit D · Glendale, CA 91201</p>
+        <p class="hours">Open Mon–Sat · 7:00 AM – 7:00 PM</p>
+        <div class="visit-card__cta">
+          <a href="tel:+13233798119" class="btn btn--order">Call to Order · (323) 379-8119</a>
+          <a href="https://maps.google.com/?q=Dr.+Juice+1250+W+Glenoaks+Blvd+Glendale+CA+91201" target="_blank" rel="noopener" class="btn btn--ghost" style="border-color:var(--cream);color:var(--cream)">Get Directions</a>
+        </div>
+        <div class="deliv">
+          <span>Delivery</span>
+          <a href="https://www.ubereats.com/store/dr-juice/SIxVVLn2Uf-bV9xO33MTSw" target="_blank" rel="noopener">Uber Eats</a>
+          <a href="https://www.grubhub.com/restaurant/dr-juice-1250-west-glenoaks-boulevard-glendale/11510624" target="_blank" rel="noopener">Grubhub</a>
+          <a href="https://postmates.com/store/dr-juice/SIxVVLn2Uf-bV9xO33MTSw" target="_blank" rel="noopener">Postmates</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ APP + NEWSLETTER ░░░ -->
+  <section class="app" id="app">
+    <div class="app__grid">
+      <div class="app__copy">
+        <span class="eyebrow" data-reveal>Skip the line</span>
+        <h2 data-reveal>Your wellness, <em>in your pocket.</em></h2>
+        <p data-reveal>Save your usual, earn rewards on every order, and skip the line with the Dr. Juice app.</p>
+        <div class="app__badges" data-reveal>
+          <a href="https://apps.apple.com/us/app/dr-juice-natural-fruit-juice/id6755841157" target="_blank" rel="noopener" class="store-badge">
+            <span> <small>Download on the</small><b>App Store</b></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="news" data-reveal>
+        <h3>Get the drop on new blends</h3>
+        <p>Seasonal juices, secret menu items and members-only deals. No spam — just good stuff.</p>
+        <form id="newsForm" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Replace with your Web3Forms access key to receive signups by email -->
+          <input type="hidden" name="access_key" value="YOUR-WEB3FORMS-KEY" />
+          <input type="hidden" name="subject" value="New Dr. Juice newsletter signup" />
+          <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address" />
+          <button type="submit" class="btn btn--order">Join</button>
+        </form>
+        <div class="news__ok" id="newsOk" role="status"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ FOOTER ░░░ -->
+  <footer class="foot">
+    <div class="foot__mark">DR<b>.</b>JUICE</div>
+    <div class="foot__row">
+      <span>Cold-pressed juice · Smoothies · Açaí</span>
+      <span>1250 W Glenoaks Blvd, Glendale, CA</span>
+      <a href="#hero">Back to top ↑</a>
+    </div>
+    <div class="foot__social">
+      <a href="https://www.instagram.com/dr.juice.usa/" target="_blank" rel="noopener">Instagram</a>
+      <a href="tel:+13233798119">(323) 379-8119</a>
+      <a href="https://apps.apple.com/us/app/dr-juice-natural-fruit-juice/id6755841157" target="_blank" rel="noopener">Get the App</a>
+    </div>
+    <div class="foot__tagline">"Real fruit. Nothing else."</div>
+    <div class="foot__legal">© <span id="yr"></span> Dr. Juice · Glendale, California. Made fresh daily.</div>
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+<script src="js/site.js"></script>
+<script>
+(function () {
+  // year
+  var yr = document.getElementById("yr"); if (yr) yr.textContent = new Date().getFullYear();
+
+  // newsletter: submit via fetch, no redirect; graceful if key not set
+  var form = document.getElementById("newsForm"), ok = document.getElementById("newsOk");
+  if (form) form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var key = form.querySelector('[name=access_key]').value;
+    if (!key || key.indexOf("YOUR-") === 0) {
+      ok.textContent = "Thanks! (Demo mode — add a Web3Forms key to collect signups.)";
+      form.reset(); return;
+    }
+    ok.textContent = "Joining…";
+    fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+      .then(function (r) { return r.json(); })
+      .then(function () { ok.textContent = "You're in — see you at the counter. 🍊"; form.reset(); })
+      .catch(function () { ok.textContent = "Hmm, that didn't send. Try again or call us."; });
+  });
+
+  // start motion layer once DOM is ready
+  function start() { (window.__initMotion || function () {})(); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
+  else start();
+})();
+</script>
+</body>
+</html>
